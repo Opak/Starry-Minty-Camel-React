@@ -1,0 +1,203 @@
+.grille-de-controle-container10 {
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row;
+  background-color: var(--dl-color-menu-gris);
+}
+.grille-de-controle-menu {
+  gap: var(--dl-space-space-halfunit);
+  flex: 0 0 auto;
+  width: auto;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+.grille-de-controle-action1 {
+  flex: 0 0 auto;
+  width: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+}
+.grille-de-controle-retour-contrat {
+  font-size: 18px;
+}
+.grille-de-controle-icone1 {
+  flex: 0 0 auto;
+  width: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+}
+.grille-de-controle-titre-infos-logement {
+  align-self: stretch;
+}
+.grille-de-controle-partie21 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.grille-de-controle-partie31 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.grille-de-controle-partie41 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.grille-de-controle-ligne2-infos {
+  flex: 0 0 auto;
+  display: flex;
+}
+.grille-de-controle-partie12 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.grille-de-controle-partie22 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.grille-de-controle-partie32 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.grille-de-controle-partie42 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.grille-de-controle-select-etage {
+  transition: 0.3s;
+}
+
+.grille-de-controle-ligne3-infos {
+  flex: 0 0 auto;
+  display: flex;
+}
+.grille-de-controle-partie13 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.grille-de-controle-partie23 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.grille-de-controle-select-classement {
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+.grille-de-controle-partie33 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.grille-de-controle-partie43 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.grille-de-controle-textinput {
+  fill: var(--dl-color-theme-neutral-dark);
+  color: #000000;
+  max-width: var(--dl-size-size-small);
+  align-self: flex-start;
+  text-align: center;
+  margin-bottom: var(--dl-space-space-halfunit);
+  background-color: #f5f4f4;
+}
+.grille-de-controle-rapport {
+  display: none;
+}
+.grille-de-controle-titre-critres-obligatoires-non-valids {
+  position: relative;
+}
+.grille-de-controle-liste-critres-obligatoires-non-valids {
+  gap: var(--dl-space-space-unit);
+  padding-top: var(--dl-space-space-halfunit);
+  padding-bottom: var(--dl-space-space-halfunit);
+}
+.grille-de-controle-tableau-rcap-points {
+  gap: 0;
+}
+.grille-de-controle-points-obligatoires1 {
+  border-radius: var(--dl-radius-radius-radius8);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.grille-de-controle-points-obligatoires2 {
+  border-radius: 0px;
+}
+.grille-de-controle-ligne119 {
+  border-radius: var(--dl-radius-radius-radius8);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.grille-de-controle-verification {
+  display: none;
+}
+.grille-de-controle-titre-critres-obligatoiresa-cocher {
+  position: relative;
+}
+.grille-de-controle-liste-critres-obligatoires-a-cocher {
+  gap: var(--dl-space-space-unit);
+  padding-top: var(--dl-space-space-halfunit);
+  padding-bottom: var(--dl-space-space-halfunit);
+}
+.grille-de-controle-titre-critres-la-carte-cocher1 {
+  position: relative;
+}
+.grille-de-controle-liste-critres-la-carte-cocher1 {
+  gap: var(--dl-space-space-unit);
+  padding-top: var(--dl-space-space-halfunit);
+  padding-bottom: var(--dl-space-space-halfunit);
+}
+.grille-de-controle-titre-critres-la-carte-cocher2 {
+  position: relative;
+}
+.grille-de-controle-liste-critres-la-carte-cocher2 {
+  gap: var(--dl-space-space-unit);
+  padding-top: var(--dl-space-space-halfunit);
+  padding-bottom: var(--dl-space-space-halfunit);
+}
+.grille-de-controle-container12 {
+  display: contents;
+}
+.grille-de-controle-container14 {
+  display: contents;
+}
+.grille-de-controle-container16 {
+  display: contents;
+}
+.grille-de-controle-container18 {
+  display: contents;
+}
+.grille-de-controle-container20 {
+  display: contents;
+}
+.grille-de-controle-container22 {
+  display: contents;
+}
+.grille-de-controle-container24 {
+  display: contents;
+}
+.grille-de-controle-container26 {
+  display: contents;
+}
+.grille-de-controle-container28 {
+  display: contents;
+}

@@ -1,0 +1,455 @@
+.valider-contrat-container10 {
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row;
+  background-color: var(--dl-color-menu-gris);
+}
+.valider-contrat-titre3 {
+  flex: 0 0 auto;
+  display: flex;
+}
+.valider-contrat-menu {
+  gap: var(--dl-space-space-halfunit);
+  flex: 0 0 auto;
+  width: auto;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  text-decoration: none;
+}
+.valider-contrat-action1 {
+  flex: 0 0 auto;
+  width: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+}
+.valider-contrat-retour-contrat {
+  font-size: 18px;
+}
+.valider-contrat-container11 {
+  flex: 0 0 auto;
+  width: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+}
+.valider-contrat-tableau-documents-contrat {
+  gap: 0;
+  z-index: 200;
+}
+.valider-contrat-documents-obligatoires {
+  border-radius: 0px;
+  border-top-left-radius: var(--dl-radius-radius-radius8);
+  border-top-right-radius: var(--dl-radius-radius-radius8);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.valider-contrat-contrat-de-service3 {
+  align-self: center;
+  font-style: normal;
+  font-weight: 400;
+}
+.valider-contrat-actions1 {
+  gap: var(--dl-space-space-unit);
+  padding-left: var(--dl-space-space-halfunit);
+  padding-right: var(--dl-space-space-halfunit);
+}
+.valider-contrat-bouton-bleu {
+  position: relative;
+}
+.valider-contrat-contrat-de-service6 {
+  align-self: center;
+}
+.valider-contrat-actions2 {
+  gap: var(--dl-space-space-unit);
+  padding-left: var(--dl-space-space-halfunit);
+  padding-right: var(--dl-space-space-halfunit);
+}
+.valider-contrat-grille-de-contrle2 {
+  align-self: center;
+}
+.valider-contrat-actions3 {
+  gap: var(--dl-space-space-unit);
+  padding-left: var(--dl-space-space-halfunit);
+  padding-right: var(--dl-space-space-halfunit);
+}
+.valider-contrat-grille-de-contrle4 {
+  align-self: center;
+}
+.valider-contrat-actions4 {
+  gap: var(--dl-space-space-unit);
+  padding-left: var(--dl-space-space-halfunit);
+  padding-right: var(--dl-space-space-halfunit);
+}
+.valider-contrat-generer3 {
+  position: relative;
+}
+.valider-contrat-grille-de-contrle5 {
+  min-height: var(--dl-size-size-small);
+  border-radius: var(--dl-radius-radius-radius8);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.valider-contrat-grille-de-contrle7 {
+  align-self: center;
+}
+.valider-contrat-actions5 {
+  gap: var(--dl-space-space-unit);
+  padding-left: var(--dl-space-space-halfunit);
+  padding-right: var(--dl-space-space-halfunit);
+  flex-direction: column;
+}
+.valider-contrat-liste-docs {
+  justify-content: center;
+}
+.valider-contrat-decision1 {
+  gap: 0;
+  z-index: 200;
+}
+.valider-contrat-decision2 {
+  border-radius: var(--dl-radius-radius-radius8);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.valider-contrat-options-de-decision {
+  border-radius: var(--dl-radius-radius-radius8);
+}
+.valider-contrat-actions6 {
+  gap: var(--dl-space-space-threeunits);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.valider-contrat-bouton-vert1 {
+  position: relative;
+}
+.valider-contrat-bouton-rouge1 {
+  position: relative;
+}
+.valider-contrat-message-pour-inspecteur3 {
+  padding-top: var(--dl-space-space-halfunit);
+  border-color: var(--dl-color-menu-border);
+  border-width: 1px;
+  padding-left: var(--dl-space-space-halfunit);
+  padding-bottom: var(--dl-space-space-halfunit);
+  border-top-width: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+}
+.valider-contrat-points-corriger1 {
+  gap: var(--dl-space-space-twounits);
+  justify-content: center;
+}
+.valider-contrat-bouton-vert2 {
+  position: relative;
+}
+.valider-contrat-message-pour-inspecteur6 {
+  padding-top: var(--dl-space-space-halfunit);
+  border-color: var(--dl-color-menu-border);
+  border-width: 1px;
+  padding-left: var(--dl-space-space-halfunit);
+  padding-bottom: var(--dl-space-space-halfunit);
+  border-top-width: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+}
+.valider-contrat-points-corriger2 {
+  gap: var(--dl-space-space-twounits);
+  justify-content: center;
+}
+.valider-contrat-bouton-rouge2 {
+  position: relative;
+}
+.valider-contrat-infos {
+  display: none;
+}
+.valider-contrat-informations-client {
+  position: relative;
+  flex-direction: column;
+}
+.valider-contrat-partie210 {
+  flex: 0 0 auto;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+}
+.valider-contrat-container12 {
+  flex: 0 0 auto;
+  width: 20%;
+  display: flex;
+}
+.valider-contrat-radiobutton1 {
+  margin-left: var(--dl-space-space-halfunit);
+  margin-right: var(--dl-space-space-halfunit);
+}
+.valider-contrat-container13 {
+  flex: 0 0 auto;
+  width: auto;
+  display: flex;
+}
+.valider-contrat-radiobutton2 {
+  margin-left: var(--dl-space-space-twounits);
+  margin-right: var(--dl-space-space-halfunit);
+}
+.valider-contrat-partie211 {
+  flex: 0 0 auto;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+}
+.valider-contrat-radiobutton3 {
+  margin-left: var(--dl-space-space-halfunit);
+  margin-right: var(--dl-space-space-halfunit);
+}
+.valider-contrat-container15 {
+  flex: 0 0 auto;
+  display: flex;
+}
+.valider-contrat-radio {
+  margin-left: var(--dl-space-space-twounits);
+  margin-right: var(--dl-space-space-halfunit);
+}
+.valider-contrat-container16 {
+  flex: 0 0 auto;
+  display: flex;
+}
+.valider-contrat-radiobutton4 {
+  margin-left: var(--dl-space-space-twounits);
+  margin-right: var(--dl-space-space-halfunit);
+}
+.valider-contrat-partie212 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.valider-contrat-partie410 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.valider-contrat-partie311 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.valider-contrat-partie214 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.valider-contrat-container19 {
+  display: contents;
+}
+.valider-contrat-partie312 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.valider-contrat-partie215 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.valider-contrat-partie313 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.valider-contrat-partie413 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.valider-contrat-ligne-infos-contact2 {
+  padding-bottom: var(--dl-space-space-halfunit);
+}
+.valider-contrat-partie216 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.valider-contrat-partie314 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.valider-contrat-partie414 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.valider-contrat-informations-meubl {
+  position: relative;
+  flex-direction: column;
+}
+.valider-contrat-titre-infos-logement2 {
+  position: relative;
+}
+.valider-contrat-partie117 {
+  gap: var(--dl-space-space-halfunit);
+  width: 100%;
+  align-items: center;
+  padding-left: var(--dl-space-space-halfunit);
+  justify-content: flex-start;
+}
+.valider-contrat-partie217 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.valider-contrat-container21 {
+  display: contents;
+}
+.valider-contrat-partie315 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.valider-contrat-partie415 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.valider-contrat-partie218 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.valider-contrat-partie316 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.valider-contrat-partie416 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.valider-contrat-ligne-infos-contact4 {
+  padding-bottom: var(--dl-space-space-halfunit);
+}
+.valider-contrat-partie219 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.valider-contrat-partie317 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.valider-contrat-partie417 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.valider-contrat-informations-additionnelles {
+  position: relative;
+  flex-direction: column;
+}
+.valider-contrat-titre-infos-logement3 {
+  position: relative;
+}
+.valider-contrat-partie220 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.valider-contrat-partie318 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.valider-contrat-partie418 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.valider-contrat-partie221 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.valider-contrat-partie319 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.valider-contrat-partie419 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.valider-contrat-ligne-infos-adresse24 {
+  padding-bottom: var(--dl-space-space-halfunit);
+}
+.valider-contrat-partie222 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.valider-contrat-container23 {
+  display: contents;
+}
+.valider-contrat-partie320 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.valider-contrat-partie420 {
+  flex: 0 0 auto;
+  flex-direction: row;
+}
+.valider-contrat-avertissement {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+.valider-contrat-overlay {
+  flex: 0 0 auto;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  display: none;
+}
+.valider-contrat-container27 {
+  display: contents;
+}
+.valider-contrat-container29 {
+  display: contents;
+}
+.valider-contrat-container31 {
+  display: contents;
+}
+.valider-contrat-container33 {
+  display: contents;
+}
+.valider-contrat-container35 {
+  display: contents;
+}
+.valider-contrat-container37 {
+  display: contents;
+}
+.valider-contrat-container39 {
+  display: contents;
+}

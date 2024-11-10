@@ -1,0 +1,323 @@
+.creer-contrat-container10 {
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row;
+}
+.creer-contrat-titre1 {
+  flex: 0 0 auto;
+  display: flex;
+}
+.creer-contrat-menu {
+  gap: var(--dl-space-space-halfunit);
+  flex: 0 0 auto;
+  width: auto;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  text-decoration: none;
+}
+.creer-contrat-action1 {
+  flex: 0 0 auto;
+  width: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+}
+.creer-contrat-retour-contrat {
+  font-size: 18px;
+}
+.creer-contrat-container11 {
+  flex: 0 0 auto;
+  width: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+}
+.creer-contrat-main-container {
+  z-index: 100;
+}
+.creer-contrat-informations-client {
+  position: relative;
+  flex-direction: column;
+}
+.creer-contrat-choix-client {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.creer-contrat-rechercher-client {
+  flex: 0 0 auto;
+  flex-direction: column;
+  padding-bottom: var(--dl-space-space-halfunit);
+}
+.creer-contrat-tableau-liste-clients {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.creer-contrat-partie210 {
+  flex: 0 0 auto;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+}
+.creer-contrat-radiobutton1 {
+  margin-left: var(--dl-space-space-halfunit);
+  margin-right: var(--dl-space-space-halfunit);
+}
+.creer-contrat-radiobutton2 {
+  margin-left: var(--dl-space-space-twounits);
+  margin-right: var(--dl-space-space-halfunit);
+}
+.creer-contrat-partie211 {
+  flex: 0 0 auto;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+}
+.creer-contrat-radiobutton3 {
+  margin-left: var(--dl-space-space-halfunit);
+  margin-right: var(--dl-space-space-halfunit);
+}
+.creer-contrat-container15 {
+  flex: 0 0 auto;
+  display: flex;
+}
+.creer-contrat-radio {
+  margin-left: var(--dl-space-space-twounits);
+  margin-right: var(--dl-space-space-halfunit);
+}
+.creer-contrat-container16 {
+  flex: 0 0 auto;
+  display: flex;
+}
+.creer-contrat-radiobutton4 {
+  margin-left: var(--dl-space-space-twounits);
+  margin-right: var(--dl-space-space-halfunit);
+}
+.creer-contrat-partie212 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.creer-contrat-partie41 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.creer-contrat-partie32 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.creer-contrat-partie42 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.creer-contrat-partie214 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.creer-contrat-container19 {
+  display: contents;
+}
+.creer-contrat-partie33 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.creer-contrat-partie215 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.creer-contrat-partie34 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.creer-contrat-partie44 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.creer-contrat-ligne-infos-contact1 {
+  padding-bottom: var(--dl-space-space-halfunit);
+}
+.creer-contrat-partie216 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.creer-contrat-partie35 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.creer-contrat-partie45 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.creer-contrat-container20 {
+  background-color: var(--dl-color-menu-blanc);
+}
+.creer-contrat-bouton-rouge1 {
+  position: relative;
+}
+.creer-contrat-bouton-bleu1 {
+  position: relative;
+}
+.creer-contrat-informations-meubl {
+  display: none;
+  position: relative;
+  flex-direction: column;
+}
+.creer-contrat-titre-infos-logement1 {
+  position: relative;
+}
+.creer-contrat-partie120 {
+  gap: var(--dl-space-space-halfunit);
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+}
+.creer-contrat-partie217 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.creer-contrat-container22 {
+  display: contents;
+}
+.creer-contrat-partie36 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.creer-contrat-partie46 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.creer-contrat-partie218 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.creer-contrat-partie37 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.creer-contrat-partie47 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.creer-contrat-ligne-infos-contact3 {
+  padding-bottom: var(--dl-space-space-halfunit);
+}
+.creer-contrat-partie219 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.creer-contrat-partie38 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.creer-contrat-partie48 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.creer-contrat-informations-additionnelles {
+  display: none;
+  position: relative;
+  flex-direction: column;
+}
+.creer-contrat-titre-infos-logement2 {
+  position: relative;
+}
+.creer-contrat-partie220 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.creer-contrat-partie39 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.creer-contrat-partie49 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.creer-contrat-ligne-infos-adresse24 {
+  padding-bottom: var(--dl-space-space-halfunit);
+}
+.creer-contrat-partie221 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.creer-contrat-container24 {
+  display: contents;
+}
+.creer-contrat-container25 {
+  background-color: var(--dl-color-menu-blanc);
+}
+.creer-contrat-bouton-rouge2 {
+  position: relative;
+}
+.creer-contrat-bouton-bleu2 {
+  position: relative;
+}
+.creer-contrat-container27 {
+  display: contents;
+}
+.creer-contrat-container29 {
+  display: contents;
+}
+.creer-contrat-container31 {
+  display: contents;
+}
+.creer-contrat-container33 {
+  display: contents;
+}
+.creer-contrat-container35 {
+  display: contents;
+}
+.creer-contrat-container37 {
+  display: contents;
+}
+.creer-contrat-container39 {
+  display: contents;
+}
+.creer-contrat-container41 {
+  display: contents;
+}

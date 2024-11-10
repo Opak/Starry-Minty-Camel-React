@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>starsmanager_ui</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-theme-neutral-dark);
+        background: var(--dl-color-theme-neutral-light);
+
+        fill: var(--dl-color-theme-neutral-dark);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+    <script
+      src="https://unpkg.com/react/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/prop-types/prop-types.min.js"></script>
+    <script src="https://unpkg.com/styled-components/dist/styled-components.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+
+    <script
+      src="https://kit.fontawesome.com/39657cac6e.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      const StatutDto = {
+          ONC: 'ONC',
+          OPTIONNEL: 'OPTIONNEL',
+          OBLIGATOIRE: 'OBLIGATOIRE',
+          NON_APPLICABLE: 'NON_APPLICABLE',
+
+          // Fonction pour récupérer l'énumération à partir d'une chaîne de caractères
+          fromString: function(statutString) {
+              switch (statutString) {
+                  case 'ONC':
+                      return StatutDto.ONC;
+                  case 'OPTIONNEL':
+                      return StatutDto.OPTIONNEL;
+                  case 'OBLIGATOIRE':
+                      return StatutDto.OBLIGATOIRE;
+                  case 'NON_APPLICABLE':
+                      return StatutDto.NON_APPLICABLE;
+                  default:
+                      throw new Error(`Statut inconnu: ${statutString}`);
+              }
+          }
+      };
+
+      // GrilleControleDto
+      class GrilleControleDto {
+          constructor(chapitres) {
+              this.chapitres = chapitres;
+          }
+      }
+
+      // ChapitreDto
+      class ChapitreDto {
+          constructor(libelle, sousChapitres) {
+              this.libelle = libelle;
+              this.sousChapitres = sousChapitres;
+          }
+      }
+
+      // SousChapitreDto
+      class SousChapitreDto {
+          constructor(libelle, rubriques) {
+              this.libelle = libelle;
+              this.rubriques = rubriques;
+          }
+      }
+
+      // RubriqueDto
+      class RubriqueDto {
+          constructor(libelle, criteres, categories) {
+              this.libelle = libelle;
+              this.criteres = criteres;
+              this.categories = categories;
+          }
+      }
+
+      // CritereDto
+      class CritereDto {
+          constructor(numCritere, libelle, points, peutEtreNonAppliquable, categories) {
+              this.numCritere = numCritere;
+              this.libelle = libelle;
+              this.points = points;
+              this.peutEtreNonAppliquable = peutEtreNonAppliquable;
+              this.categories = categories;
+          }
+      }
+
+      // RubriqueCategorieDto
+      class RubriqueCategorieDto {
+          constructor(nom, libelle) {
+              this.nom = nom;
+              this.libelle = libelle;
+          }
+      }
+
+      // CategorieDto
+      class CategorieDto {
+          constructor(nom, statut, conditionNonApplicabilite) {
+              this.nom = nom;
+              this.statut = statut;
+          }
+      }
+
+      // RapportProvisoireDto
+      class RapportProvisoireDto {
+          constructor(
+              pointsTotauxObligatoires,
+              pointsMinimauxObligatoires,
+              pointsObligatoiresObtenus,
+              pointsObligatoiresAtteints,
+              pointsObligatoiresACompenser,
+              pointsOptionnelsDisponibles,
+              pointsOptionnelsNecessaires,
+              pointsOptionnelsObtenus,
+              pointsOptionnelsAAtteindre,
+              resultat,
+              criteresObligatoiresNonValides
+          ) {
+              this.pointsTotauxObligatoires = pointsTotauxObligatoires;
+              this.pointsMinimauxObligatoires = pointsMinimauxObligatoires;
+              this.pointsObligatoiresObtenus = pointsObligatoiresObtenus;
+              this.pointsObligatoiresAtteints = pointsObligatoiresAtteints;
+              this.pointsObligatoiresACompenser = pointsObligatoiresACompenser;
+              this.pointsOptionnelsDisponibles = pointsOptionnelsDisponibles;
+              this.pointsOptionnelsNecessaires = pointsOptionnelsNecessaires;
+              this.pointsOptionnelsObtenus = pointsOptionnelsObtenus;
+              this.pointsOptionnelsAAtteindre = pointsOptionnelsAAtteindre;
+              this.resultat = resultat;
+              this.criteresObligatoiresNonValides = criteresObligatoiresNonValides;
+          }
+      }
+
+      // ReponseGrilleControleDto
+      class ReponseGrilleControleDto {
+          constructor(rapportProvisoire, criteresNonApplicables) {
+              this.rapportProvisoire = rapportProvisoire;
+              this.criteresNonApplicables = criteresNonApplicables;
+          }
+      }
+
+      function deserializeGrilleControleDto(jsonData) {
+      // Mapper le JSON aux classes JavaScript
+          return new GrilleControleDto(
+              jsonData.chapitres.map(chapitre =>
+                  new ChapitreDto(
+                      chapitre.libelle,
+                      chapitre.sous_chapitres.map(sousChapitre =>   // Utiliser "sous_chapitres" car c'est ce que le JSON utilise
+                          new SousChapitreDto(
+                              sousChapitre.libelle,
+                              sousChapitre.rubriques.map(rubrique =>
+                                  new RubriqueDto(
+                                      rubrique.libelle,
+                                      rubrique.criteres.map(critere =>
+                                          new CritereDto(
+                                              critere.num_critere,
+                                              critere.libelle,
+                                              critere.points,
+                                              critere.peut_etre_non_applicable,   // Utiliser "peut_etre_non_applicable" depuis le JSON
+                                              critere.categories.map(categorie =>
+                                                  new CategorieDto(
+                                                      categorie.nom,
+                                                      StatutDto.fromString(categorie.statut),  // Utiliser la fonction pour convertir le statut
+                                                      categorie.condition_non_applicabilite || null  // Gérer l'absence possible de "condition_non_applicabilite"
+                                                  )
+                                              )
+                                          )
+                                      ),
+                                      rubrique.categories.map(rubriqueCategorie =>
+                                          new RubriqueCategorieDto(
+                                              rubriqueCategorie.nom,
+                                              rubriqueCategorie.libelle
+                                          )
+                                      )
+                                  )
+                              )
+                          )
+                      )
+                  )
+              )
+          );
+      }
+    </script>
+
+    <style>
+       // No scroll overall
+      body {
+          overflow: hidden; /* Empêche le body de scroller */
+      }
+    </style>
+
+    <script>
+      // Valider les inputs
+      (function() {
+          // Vérifier si l'utilisateur n'est pas sur la page racine "/"
+          if (window.location.pathname !== "/") {
+              // Sélectionner tous les inputs ou spécifiquement ceux que tu veux
+              const inputs = document.querySelectorAll("input");
+
+              // Ajouter un événement keydown pour chaque input
+              inputs.forEach(input => {
+                  input.addEventListener("keydown", function(event) {
+                      // Vérifier si la touche pressée est "Enter"
+                      if (event.key === "Enter") {
+                          event.preventDefault(); // Empêcher l'action par défaut
+                          input.blur(); // Enlever le focus sur l'input
+                      }
+                  });
+              });
+          }
+      })();
+    </script>
+
+    <script>
+      (function() {
+          // Vérifier si l'URL contient '/grille-de-controle'
+          if (window.location.pathname === "/grille-de-controle") {
+              // Ne pas exécuter le script si nous sommes sur la page /grille-de-controle
+              return;
+          }
+
+          function adjustHeight(textarea) {
+              textarea.style.height = "auto";
+              textarea.style.height = textarea.scrollHeight + "px";
+          }
+
+          function attachTextareaEvents(textarea) {
+              adjustHeight(textarea);
+              textarea.style.overflowY = "hidden";
+
+              textarea.addEventListener("input", function() {
+                  adjustHeight(this);
+              });
+
+              textarea.addEventListener("keydown", function(event) {
+                  if (event.key === "Enter" && !event.shiftKey) {
+                      event.preventDefault();
+                      this.blur();
+                  }
+              });
+
+              // Si l'observation de la visibilité est nécessaire, vous pouvez la conserver ou la simplifier
+              // observeVisibility(textarea);
+          }
+
+          function attachEventsToAllTextareas() {
+              const textareas = document.querySelectorAll("textarea");
+              textareas.forEach(function(textarea) {
+                  if (!textarea.dataset.eventsAttached) {
+                      attachTextareaEvents(textarea);
+                      textarea.dataset.eventsAttached = true;
+                  } else {
+                      // Ajuster la hauteur pour s'assurer que le texte actuel est pris en compte
+                      adjustHeight(textarea);
+                  }
+              });
+          }
+
+          // Attachement initial des événements
+          attachEventsToAllTextareas();
+
+          // Ajuster les hauteurs lorsque les données sont chargées
+          document.addEventListener('dataLoaded', function() {
+              attachEventsToAllTextareas();
+          });
+
+          // Observer les modifications du DOM pour les <textarea> ajoutés dynamiquement
+          const observer = new MutationObserver(function(mutationsList) {
+              for (let mutation of mutationsList) {
+                  if (mutation.type === 'childList') {
+                      attachEventsToAllTextareas();
+                  }
+              }
+          });
+
+          observer.observe(document.body, { childList: true, subtree: true });
+      })();
+    </script>
+
+    <script>
+      (function() {
+          // Définir les fonctions à un niveau supérieur pour les rendre accessibles dans tout le script
+          function syncAddresses() {
+              for (const key in adresseFields.bien) {
+                  adresseFields.bien[key].value = adresseFields.client[key].value;
+              }
+          }
+
+          function toggleFields(disable) {
+              for (const key in adresseFields.bien) {
+                  adresseFields.bien[key].disabled = disable;
+              }
+          }
+
+          function addRealTimeSync() {
+              for (const key in adresseFields.client) {
+                  adresseFields.client[key].addEventListener('input', syncAddresses);
+              }
+          }
+
+          let adresseFields;
+
+          function attachSyncEvents() {
+              const pageDetailsContratElement = document.getElementById("pageDetailsContrat");
+              const pageCreerContratElement = document.getElementById("pageCreerContrat");
+              let currentPage = '';
+
+              if (pageDetailsContratElement) {
+                  currentPage = 'details';
+              } else if (pageCreerContratElement) {
+                  currentPage = 'creer';
+              }
+
+              const pageElement = pageDetailsContratElement || pageCreerContratElement;
+
+              if (pageElement && !pageElement.dataset.syncEventsAttached) {
+                  pageElement.dataset.syncEventsAttached = 'true';
+
+                  const checkbox = document.getElementById("sameAdresse");
+                  const boutonValiderSameAdresse = document.getElementById("boutonValiderSameAdresse");
+                  adresseFields = {
+                      client: {
+                          adresse1: document.getElementById("adresse1Client"),
+                          adresse2: document.getElementById("adresse2Client"),
+                          cp: document.getElementById("CPClient"),
+                          ville: document.getElementById("villeClient")
+                      },
+                      bien: {
+                          adresse1: document.getElementById("adresse1Bien"),
+                          adresse2: document.getElementById("adresse2Bien"),
+                          cp: document.getElementById("CPBien"),
+                          ville: document.getElementById("villeBien")
+                      }
+                  };
+
+                  if (checkbox) {
+                      function removeRealTimeSync() {
+                          for (const key in adresseFields.client) {
+                              adresseFields.client[key].removeEventListener('input', syncAddresses);
+                          }
+                      }
+
+                      checkbox.addEventListener("change", function(e) {
+                          if (checkbox.checked) {
+                              // Vérifier si les champs "contrat" sont vides
+                              let contratFieldsEmpty = true;
+                              for (const key in adresseFields.bien) {
+                                  if (adresseFields.bien[key].value !== '') {
+                                      contratFieldsEmpty = false;
+                                      break;
+                                  }
+                              }
+
+                              if (contratFieldsEmpty) {
+                                  // Si vides, synchroniser immédiatement et désactiver les champs
+                                  syncAddresses();
+                                  toggleFields(true);
+                                  addRealTimeSync();
+                                  const event = new Event('dataLoaded');
+                                  document.dispatchEvent(event);
+                              } else {
+                                  // Si non vides, ne rien faire immédiatement
+                                  // Ne pas désactiver les champs
+                                  // Attendre que l'utilisateur clique sur le boutonValiderSameAdresse
+                              }
+                          } else {
+                              // Si la case est décochée, réactiver les champs et arrêter la synchronisation en temps réel
+                              toggleFields(false);
+                              removeRealTimeSync();
+                          }
+                      });
+
+                      if (boutonValiderSameAdresse) {
+                          boutonValiderSameAdresse.addEventListener("click", function() {
+                              // Synchroniser les adresses
+                              syncAddresses();
+                              // Désactiver les champs "contrat"
+                              toggleFields(true);
+                              // Cocher la case manuellement après la validation
+                              checkbox.checked = true;
+                              // Activer la synchronisation en temps réel
+                              addRealTimeSync();
+                              // Émettre un événement personnalisé pour notifier que la synchronisation est terminée
+                              const event = new Event('dataLoaded');
+                              document.dispatchEvent(event);
+                          });
+                      }
+
+                      // Initialiser l'état des champs au chargement
+                      if (checkbox.checked) {
+                          // Vérifier si les champs "contrat" sont vides
+                          let contratFieldsEmpty = true;
+                          for (const key in adresseFields.bien) {
+                              if (adresseFields.bien[key].value !== '') {
+                                  contratFieldsEmpty = false;
+                                  break;
+                              }
+                          }
+
+                          if (contratFieldsEmpty) {
+                              // Si vides, synchroniser immédiatement et désactiver les champs
+                              syncAddresses();
+                              toggleFields(true);
+                              addRealTimeSync();
+                          } else {
+                              // Si non vides, ne rien faire immédiatement
+                              // Ne pas désactiver les champs
+                          }
+                      } else {
+                          toggleFields(false); // S'assurer que les champs sont activés
+                      }
+                  } else {
+                      console.error("La checkbox 'sameAdresse' est introuvable.");
+                  }
+              }
+          }
+
+          function checkAndAttachEvents() {
+              const pageDetailsContrat = document.getElementById("pageDetailsContrat");
+              const pageCreerContrat = document.getElementById("pageCreerContrat");
+              if (pageDetailsContrat || pageCreerContrat) {
+                  attachSyncEvents();
+              }
+          }
+
+          const observerSameAdresse = new MutationObserver(function(mutationsList, observer) {
+              for (const mutation of mutationsList) {
+                  if (mutation.type === 'childList') {
+                      checkAndAttachEvents();
+                  }
+              }
+          });
+
+          observerSameAdresse.observe(document.body, {
+              childList: true,
+              subtree: true
+          });
+
+          checkAndAttachEvents();
+
+          // Écouteur pour l'événement 'dataLoaded'
+          document.addEventListener('dataLoaded', function() {
+              const checkbox = document.getElementById("sameAdresse");
+              if (checkbox && checkbox.checked) {
+                  // Si la case est cochée, synchroniser les adresses, désactiver les champs et activer la synchronisation en temps réel
+                  syncAddresses();
+                  toggleFields(true);
+                  addRealTimeSync();
+              }
+          });
+      })();
+    </script>
+
+    <style>
+          @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        to {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+      }
+    </style>
+
+    <script>
+      // Gestion message box
+      window.addEventListener('load', function() {
+          // Vérifier s'il y a un message stocké dans le sessionStorage
+          const message = JSON.parse(sessionStorage.getItem('message'));
+          if (message) {
+              // Si un message est trouvé, l'afficher
+              showMessage(message.type, message.text);
+
+              // Supprimer le message du storage après l'affichage
+              sessionStorage.removeItem('message');
+          }
+      });
+
+      function showMessage(type, text) {
+          // Vérifier si la boîte de message existe déjà, sinon la créer dynamiquement
+          let messageBox = document.getElementById('messageBox');
+          if (!messageBox) {
+              messageBox = document.createElement('div');
+              messageBox.id = 'messageBox';
+              messageBox.className = 'message-box';
+              document.body.appendChild(messageBox);
+          }
+
+          // Configurer et afficher la boîte de message
+          messageBox.className = `message-box ${type} fade-in`; // Ajouter la classe du type de message
+          messageBox.textContent = text;
+          messageBox.style.display = 'block'; // Afficher la boîte
+
+          // Supprimer la boîte après 5 secondes
+          setTimeout(() => {
+              messageBox.classList.remove('fade-in');
+              messageBox.classList.add('fade-out');
+              setTimeout(() => {
+                  messageBox.style.display = 'none'; // Cacher après l'animation
+                  messageBox.classList.remove('fade-out');
+              }, 500); // Supprimer après l'animation de fade-out
+          }, 5000); // Durée d'affichage du message
+      }
+    </script>
+  </body>
+</html>

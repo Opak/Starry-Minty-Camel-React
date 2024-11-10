@@ -1,0 +1,134 @@
+.medium-container-titre-infos-logement {
+  position: relative;
+}
+.medium-container-partie21 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.medium-container-propritaire2 {
+  padding-left: 4px;
+}
+.medium-container-partie31 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.medium-container-partie41 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.medium-container-adresse2 {
+  padding-left: 4px;
+}
+.medium-container-ligne2-infos {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.medium-container-partie12 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.medium-container-partie22 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.medium-container-partie32 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.medium-container-partie42 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.medium-container-select-etage {
+  transition: 0.3s;
+}
+
+.medium-container-ligne3-infos {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.medium-container-partie13 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.medium-container-partie23 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.medium-container-select-classement {
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+.medium-container-partie33 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.medium-container-partie43 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.medium-container-textinput {
+  fill: var(--dl-color-theme-neutral-dark);
+  color: #000000;
+  max-width: var(--dl-size-size-small);
+  align-self: flex-start;
+  text-align: center;
+  margin-bottom: var(--dl-space-space-halfunit);
+  background-color: #f5f4f4;
+}
+.medium-container-text10 {
+  display: inline-block;
+}
+.medium-container-text11 {
+  display: inline-block;
+}
+.medium-container-text12 {
+  display: inline-block;
+}
+.medium-container-text13 {
+  display: inline-block;
+}
+.medium-container-text14 {
+  display: inline-block;
+}
+.medium-container-propritaire12 {
+  display: inline-block;
+}
+.medium-container-text17 {
+  display: inline-block;
+}
+.medium-container-text18 {
+  display: inline-block;
+}
+.medium-container-text19 {
+  display: inline-block;
+}

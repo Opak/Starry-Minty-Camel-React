@@ -1,0 +1,52 @@
+.contrats-container1 {
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row;
+  background-color: var(--dl-color-menu-gris);
+}
+.contrats-titre1 {
+  flex: 0 0 auto;
+  display: flex;
+}
+.contrats-menu {
+  gap: var(--dl-space-space-halfunit);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+.contrats-navlink {
+  display: contents;
+}
+.contrats-barre-de-recherche {
+  flex: 0 0 auto;
+  width: 30%;
+  display: flex;
+  margin-right: 5%;
+}
+.contrats-textinput {
+  flex: 1;
+}
+.contrats-tableau-contrats {
+  flex: 0 0 auto;
+  display: flex;
+  border-width: 0px;
+  flex-direction: column;
+  background-color: transparent;
+}
+.contrats-titre-des-colonnes {
+  padding-bottom: var(--dl-space-space-halfunit);
+}
+.contrats-text16 {
+  align-self: center;
+}
+.contrats-container3 {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.contrats-container5 {
+  display: contents;
+}
