@@ -787,30 +787,6 @@
   border-style: solid;
   border-width: 1px;
 }
-.inputCommentaireGrille1 {
-  flex: 1;
-  width: 100%;
-  height: auto;
-  resize: none;
-  flex-grow: 1;
-  word-wrap: break-word;
-  box-sizing: border-box;
-  padding-top: var(--dl-space-space-halfunit);
-  padding-left: var(--dl-space-space-halfunit);
-  overflow-wrap: break-word;
-  padding-right: var(--dl-space-space-halfunit);
-  padding-bottom: var(--dl-space-space-halfunit);
-  background-color: var(--dl-color-menu-blanc);
-}
-.inputCommentaireGrille1:focus {
-  outline: none;
-  border-color: var(--dl-color-boutonsactions-vert);
-  border-style: solid;
-  border-width: 1px;
-}
-.inputCommentaireGrille1:hover {
-  background-color: #eaf1f8;
-}
 .ligneInfo {
   gap: var(--dl-space-space-halfunit);
   flex: 0 0 auto;
@@ -2121,6 +2097,14 @@
 }
 .message-box.fade-out {
   animation: fadeOut 0.5s forwards;
+}
+.CAF-value {
+  border-left: 4px solid #4A90E2;
+  padding-left: 8px;
+}
+.CAF-value::placeholder {
+  color: #4A90E2;
+  font-style: italic;
 }
 .Content {
   font-size: 16px;

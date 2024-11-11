@@ -788,49 +788,11 @@ const GrilleDeControle = (props) => {
         }
 
         const data = await response.json();
-        console.log("Paramètres récupérés :", data);
+        console.log("Données récupérées :", data);
 
         return data; // Return the fetched parameters
       } catch (error) {
-        console.error("Erreur lors de la récupération des paramètres:", error);
-        throw error;
-      }
-    }
-
-    // Function to fetch previously entered data (load)
-    async function fetchLoad(idGrille) {
-      const url = \`https://starsmanager-edefd7b34118.herokuapp.com/grilleControle/\${idGrille}/load\`;
-
-      try {
-        const response = await fetch(url, {
-          method: "GET",
-          headers: {
-            Authorization: \`Bearer \${token}\`, // Ajout du token
-            Accept: "application/json",
-          },
-        });
-
-        if (response.status === 401) {
-          sessionStorage.setItem(
-            "message",
-            JSON.stringify({
-              type: "error",
-              text: "Votre session a expiré, veuillez vous reconnecter.",
-            })
-          );
-          window.location.href = "/";
-          return Promise.reject("Unauthorized");
-        }
-
-        if (!response.ok) {
-          throw new Error(\`HTTP error! status: \${response.status}\`);
-        }
-
-        const data = await response.json();
-        console.log("Load récupéré :", data);
-        return data;
-      } catch (error) {
-        console.error("Erreur lors de la récupération du load :", error);
+        console.error("Erreur lors de la récupération des données:", error);
         throw error;
       }
     }
@@ -1239,11 +1201,19 @@ const GrilleDeControle = (props) => {
               }
 
               // Mettre à jour le commentaire s'il existe
-              const commentaireElement = document.getElementById(
-                \`commentaire\${reponse.num_critere}\`
-              );
+              const commentaireElement = document.getElementById(\`commentaire\${reponse.num_critere}\`);
               if (commentaireElement) {
-                commentaireElement.value = reponse.commentaire || "";
+                const commentaireModifie = reponse.commentaire_modifie === "true";
+                const commentaireObligatoire = reponse.commentaire_obligatoire === "true";
+
+                if (commentaireModifie) {
+                  commentaireElement.value = reponse.commentaire || "";
+                  commentaireElement.classList.remove("CAF-value");
+                } else if (!commentaireModifie && commentaireObligatoire) {
+                  commentaireElement.placeholder = reponse.commentaire || "";
+                  commentaireElement.classList.add("CAF-value");
+                  commentaireElement.value = "";
+                }
               }
             }
           });
@@ -1819,6 +1789,13 @@ const GrilleDeControle = (props) => {
                     if (radioElement) {
                         radioElement.checked = true;
                     }
+
+                    // Mettre à jour le contenu de la cellule pointsObtenus
+                    const pointsCell = document.getElementById(\`pointsObtenus\${numCritere}\`);
+                    if (pointsCell) {
+                        pointsCell.textContent = responseData.points_obtenus;
+                    }
+                    
                     return;
                 } catch (error) {
                     if (attempt < retries - 1) {
@@ -2011,7 +1988,27 @@ const GrilleDeControle = (props) => {
                 if (!response.ok) {
                     throw new Error(\`HTTP error! status: \${response.status}\`);
                 }
-               // return response.json();
+                return response.json();
+            })
+
+            .then(reponse => {
+                console.log("Réponse du back :", reponse); // Afficher la réponse du backend dans la console
+
+                // Mettre à jour le commentaire s'il existe
+                const commentaireElement = document.getElementById(\`commentaire\${reponse.num_critere}\`);
+                if (commentaireElement) {
+                    const commentaireModifie = reponse.commentaire_modifie === "true";
+                    const commentaireObligatoire = reponse.commentaire_obligatoire === "true";
+
+                    if (commentaireModifie) {
+                    commentaireElement.value = reponse.commentaire || "";
+                    commentaireElement.classList.remove("CAF-value");
+                    } else if (!commentaireModifie && commentaireObligatoire) {
+                    commentaireElement.placeholder = reponse.commentaire || "";
+                    commentaireElement.classList.add("CAF-value");
+                    commentaireElement.value = "";
+                    }
+                }
             })
             .catch(error => {
                 console.error("Erreur lors de l'envoi du commentaire:", error);
@@ -2025,10 +2022,8 @@ const GrilleDeControle = (props) => {
                 const numCritere = extractNumCritere(commentaireId);
                 const commentaire = event.target.value;
 
-                // Envoie le commentaire au back-end seulement si le commentaire n'est pas vide
-                if (commentaire.trim() !== "") {
-                    envoyerCommentaire(getUrlParameter("id"), numCritere, commentaire);
-                }
+                // Envoie le commentaire au back-end
+                envoyerCommentaire(getUrlParameter("id"), numCritere, commentaire);
             });
         }
 
@@ -2152,6 +2147,7 @@ const GrilleDeControle = (props) => {
 
                     // Appeler la fonction pour mettre à jour le rapport provisoire
                     window.mettreAJourRapportProvisoire(data);
+                    window.afficherCriteresObligatoiresNonValides(data.criteres_obligatoires_non_valides);
                 } catch (error) {
                     console.error('Erreur:', error);
                 }

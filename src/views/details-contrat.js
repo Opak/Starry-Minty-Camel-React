@@ -561,7 +561,7 @@ const DetailsContrat = (props) => {
         className="details-contrat-workflow mainContainer--onglets"
       >
         <div className="details-contrat-liste-etapes mediumContainer firstContainer containerCentral">
-          <div className="details-contrat-etape1">
+          <div id="etape1" className="details-contrat-etape1">
             <div className="progressBar">
               <div className="cercleContainer">
                 <div className="details-contrat-cercle1 etapeCompleted">
@@ -668,7 +668,7 @@ const DetailsContrat = (props) => {
               </div>
             </div>
           </div>
-          <div className="details-contrat-etape2">
+          <div id="etape2" className="details-contrat-etape2">
             <div className="progressBar">
               <div className="ligneProgressBarHautOK"></div>
               <div className="cercleContainer">
@@ -812,7 +812,7 @@ const DetailsContrat = (props) => {
               </div>
             </div>
           </div>
-          <div className="details-contrat-etape3">
+          <div id="etape3" className="details-contrat-etape3">
             <div className="progressBar">
               <div className="ligneProgressBarHautEnCours"></div>
               <div className="cercleContainer">
@@ -893,7 +893,7 @@ const DetailsContrat = (props) => {
               </div>
             </div>
           </div>
-          <div className="details-contrat-etape4">
+          <div id="etape4" className="details-contrat-etape4">
             <div className="progressBar">
               <div className="ligneProgressBarHaut"></div>
               <div className="cercleContainer">
@@ -1004,7 +1004,7 @@ const DetailsContrat = (props) => {
               </div>
             </div>
           </div>
-          <div className="details-contrat-etape5">
+          <div id="etape5" className="details-contrat-etape5">
             <div className="progressBar">
               <div className="ligneProgressBarHaut"></div>
               <div className="cercleContainer">
@@ -1758,8 +1758,9 @@ const DetailsContrat = (props) => {
                 }
                 return response.json();
             })
-            .then(() => {
-                console.log("Contrat mis à jour avec succès.");
+            .then(contrat => {
+                console.log("Contrat mis à jour avec succès :", contrat);
+                window.contrat = contrat;
             })
             .catch(error => {
                 console.error('Erreur lors de la mise à jour du contrat:', error);
@@ -2000,8 +2001,9 @@ const DetailsContrat = (props) => {
                 }
                 return response.json();
             })
-            .then(() => {
-                console.log("Client mis à jour avec succès.");
+            .then(client => {
+                console.log("Client mis à jour avec succès :", client);
+                window.client = client;
 
                 // Si la checkbox sameAdresse est cochée, on met aussi à jour le contrat
                 if (sameAdresseCheckbox && sameAdresseCheckbox.checked) {
@@ -2067,6 +2069,7 @@ const DetailsContrat = (props) => {
             })
             .then(workflow => {
                 console.log("Détails du workflow :", workflow);
+                window.workflow = workflow;
                 updateCheckboxes(workflow.etapes, workflow.id);
             })
             .catch(error => {
@@ -2168,6 +2171,27 @@ const DetailsContrat = (props) => {
       </div>
       <div>
         <div className="details-contrat-container57">
+          <React.Fragment>
+            <Script>{`
+  document.addEventListener("dataLoaded", function() {
+    if (window.contrat && ["DEMANDE_RECUE", "VISITE_PROGRAMMEE", "VISITE_EFFECTUEE"].includes(window.contrat.statut)) {
+      const etapes = ["etape3", "etape4", "etape5"];
+      etapes.forEach(function(etapeId) {
+        const etapeElement = document.getElementById(etapeId);
+        if (etapeElement) {
+          etapeElement.style.backgroundColor = "#f0f0f0";
+          etapeElement.style.opacity = "0.6";
+          etapeElement.style.pointerEvents = "none";
+        }
+      });
+    }
+  });
+`}</Script>
+          </React.Fragment>
+        </div>
+      </div>
+      <div>
+        <div className="details-contrat-container59">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -2320,7 +2344,7 @@ const DetailsContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="details-contrat-container59">
+        <div className="details-contrat-container61">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -2335,8 +2359,10 @@ const DetailsContrat = (props) => {
         boutonEditer.addEventListener("click", () => {
           const dateActuelle = new Date();
           if (!window.contrat || !window.contrat.date_visite) {
-            console.error("La propriété 'date_visite' est manquante dans 'window.contrat'.");
-            return;
+            console.log("La date de visite du contrat n'est pas définie.");
+            // Afficher le popup avec le message
+            messagePopupEditionGrille.innerHTML = \`Vous allez éditer une grille pour une visite dont la date n'est pas définie.\`;
+            window.ouvrirPopup(popupEditionGrille);            return;
           }
           const dateContrat = window.contrat.date_visite.split(" ")[0];
 
@@ -2375,7 +2401,7 @@ const DetailsContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="details-contrat-container61">
+        <div className="details-contrat-container63">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -2437,7 +2463,7 @@ const DetailsContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="details-contrat-container63">
+        <div className="details-contrat-container65">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -2512,7 +2538,7 @@ const DetailsContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="details-contrat-container65">
+        <div className="details-contrat-container67">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -2565,7 +2591,7 @@ const DetailsContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="details-contrat-container67">
+        <div className="details-contrat-container69">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -2642,7 +2668,7 @@ const DetailsContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="details-contrat-container69">
+        <div className="details-contrat-container71">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -2739,7 +2765,7 @@ const DetailsContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="details-contrat-container71">
+        <div className="details-contrat-container73">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -2885,7 +2911,7 @@ const DetailsContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="details-contrat-container73">
+        <div className="details-contrat-container75">
           <React.Fragment>
             <Script>{`
     // Script pour la page Détails Contrat
