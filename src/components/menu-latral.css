@@ -1,9 +1,6 @@
-.menu-latral-cadre-menu11 {
+.menu-latral-cadre-menu1 {
   width: var(--dl-size-size-medium);
   height: var(--dl-size-size-small);
-}
-.menu-latral-image {
-  object-fit: cover;
 }
 .menu-latral-container12 {
   display: contents;
@@ -18,6 +15,9 @@
   display: contents;
 }
 .menu-latral-container20 {
+  display: contents;
+}
+.menu-latral-container22 {
   display: contents;
 }
 

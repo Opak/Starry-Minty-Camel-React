@@ -53,7 +53,6 @@ const Contrats = (props) => {
         </div>
       </div>
       <div id="listeContainer" className="mainContainer">
-        <div id="messageErreur" className="boxMessageErreur"></div>
         <div className="contrats-tableau-contrats grilleDeControle firstContainer">
           <div className="contrats-titre-des-colonnes ligneTitreColonnesContrats">
             <div className="celluleNumContrat titreColonnesContrats">
@@ -85,11 +84,11 @@ const Contrats = (props) => {
               <span className="texteTitreColonnesContrats">Statut</span>
             </div>
           </div>
-          <div id="tableauListeContrats" className="contrats-container3"></div>
+          <div id="tableauListeContrats" className="contrats-container2"></div>
         </div>
       </div>
       <div>
-        <div className="contrats-container5">
+        <div className="contrats-container4">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -118,14 +117,12 @@ const Contrats = (props) => {
                 }
             })
             .then(response => {
-                // Si le token est périmé ou invalide, le back renverra probablement un statut 401 (Unauthorized)
                 if (response.status === 401) {
-                    sessionStorage.setItem("message", JSON.stringify({ type: "error", text: "Votre session a expiré, veuillez vous reconnecter."}));
+                    sessionStorage.setItem("message", JSON.stringify({ type: "error", text: "Votre session a expiré, veuillez vous reconnecter." }));
                     window.location.href = '/';
                     return Promise.reject("Unauthorized");
                 }
 
-                // Si le statut est OK, on peut continuer
                 if (!response.ok) {
                     throw new Error(\`HTTP error! status: \${response.status}\`);
                 }
@@ -145,7 +142,7 @@ const Contrats = (props) => {
                     })
                     .then(response => {
                         if (response.status === 401) {
-                            sessionStorage.setItem("message", JSON.stringify({ type: "error", text: "Votre session a expiré, veuillez vous reconnecter."}));
+                            sessionStorage.setItem("message", JSON.stringify({ type: "error", text: "Votre session a expiré, veuillez vous reconnecter." }));
                             window.location.href = '/';
                             return Promise.reject("Unauthorized");
                         }
@@ -172,7 +169,6 @@ const Contrats = (props) => {
                         const ligneContrat = document.createElement("div");
                         ligneContrat.classList.add("hoverLigne", "ligneContrats", "flex");
 
-                        // Déterminer la classe CSS, l'icône et le texte pour le statut
                         let classeStatut = '';
                         let iconeStatut = '';
                         let texteStatut = '';
@@ -272,18 +268,8 @@ const Contrats = (props) => {
             });
         }
 
-        // Fonction pour vérifier si la page "pageContrats" est présente
-        function checkPageContrats() {
-            const pageContrats = document.getElementById("pageContrats");
-            if (pageContrats && !pageContrats.dataset.loaded) {
-                // Marquer comme chargé pour éviter les exécutions multiples
-                pageContrats.dataset.loaded = 'true';
-                afficherContrats();
-            }
-        }
-
-        // Appeler la fonction initialement
-        checkPageContrats();
+        // Appeler la fonction initialement pour charger les contrats
+        afficherContrats();
     })();
 `}</Script>
             </React.Fragment>

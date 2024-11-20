@@ -9,26 +9,6 @@
   flex: 0 0 auto;
   display: flex;
 }
-.validation-menu {
-  gap: var(--dl-space-space-halfunit);
-  flex: 1;
-  display: flex;
-  align-items: center;
-  flex-direction: row-reverse;
-  justify-content: flex-start;
-}
-.validation-navlink {
-  display: contents;
-}
-.validation-barre-de-recherche {
-  flex: 0 0 auto;
-  width: 30%;
-  display: flex;
-  margin-right: 5%;
-}
-.validation-textinput {
-  flex: 1;
-}
 .validation-tableau-contrats {
   flex: 0 0 auto;
   display: flex;
@@ -42,11 +22,11 @@
 .validation-text16 {
   align-self: center;
 }
-.validation-container3 {
+.validation-container2 {
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
 }
-.validation-container5 {
+.validation-container4 {
   display: contents;
 }

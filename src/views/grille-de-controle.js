@@ -871,6 +871,23 @@ const GrilleDeControle = (props) => {
           return response.json();
         })
         .then((contratData) => {
+          // Nouvelle condition pour vérifier le statut du contrat
+          if (
+            contratData.statut !== "DEMANDE_RECUE" &&
+            contratData.statut !== "VISITE_PROGRAMMEE" &&
+            contratData.statut !== "VISITE_EFFECTUEE"
+          ) {
+            sessionStorage.setItem(
+              "message",
+              JSON.stringify({
+                type: "error",
+                text: "Cette grille de contrôle n'est pas modifiable actuellement.",
+              })
+            );
+            window.location.href = \`/details-contrat?id=\${contratData.id}\`;
+            return;
+          }
+
           setContrat(contratData);
 
           // Créer la chaîne d'adresse
@@ -2201,7 +2218,7 @@ const GrilleDeControle = (props) => {
                 // Si la liste des critères est vide, ajoute un message indiquant qu'il n'y a pas de critères non validés
                 if (criteres.length === 0) {
                     const message = document.createElement("li");
-                    message.textContent = "Aucun critère non validé";
+                    message.textContent = "Tous les critères sont remplis";
                     listeCriteresElement.appendChild(message);
                 } else {
                     // Crée une entrée pour chaque critère non validé
@@ -2227,8 +2244,12 @@ const GrilleDeControle = (props) => {
         ongletRapport.addEventListener("click", afficherRapport);
         ongletVerification.addEventListener("click", afficherVerification);
 
-        // Activer l'onglet Grille par défaut au chargement de la page
-        afficherGrille();
+        // Activer l'onglet approprié au chargement de la page
+        if (window.location.hash === "#verification") {
+            afficherVerification();
+        } else {
+            afficherGrille();
+        }
     })();
 `}</Script>
             </React.Fragment>

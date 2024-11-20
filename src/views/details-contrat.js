@@ -869,7 +869,7 @@ const DetailsContrat = (props) => {
               <div className="actionEtape">
                 <div className="intituleAction">
                   <span className="details-contrat-text173">
-                    Corrections à apporter
+                    Modifications nécessaires
                   </span>
                 </div>
                 <div className="boutonAction">
@@ -878,7 +878,7 @@ const DetailsContrat = (props) => {
                     className="details-contrat-bouton-vert2 boutonActionGrillePetit actionGrilleDeControle boutonVert"
                   >
                     <span>
-                      <span>Valider les corrections</span>
+                      <span>Valider les modifications</span>
                       <br></br>
                     </span>
                   </div>
@@ -1109,7 +1109,10 @@ const DetailsContrat = (props) => {
           >
             <span>Annuler</span>
           </div>
-          <div className="boutonActionGrille actionGrilleDeControle boutonVert">
+          <div
+            id="boutonConfirmerValidation"
+            className="boutonActionGrille actionGrilleDeControle boutonVert"
+          >
             <span>Confirmer</span>
           </div>
         </div>
@@ -2096,7 +2099,8 @@ const DetailsContrat = (props) => {
                 "ETAPE2_UPLOAD_JUSTIFICATIFS": "checkbox2-3",
                 "ETAPE2_VERIFIER_GRILLE": "checkbox2-1",
                 "ETAPE2_UPLOAD_BORDEREAU": "checkbox2-2",
-                "ETAPE3": "checkbox2-4"
+                "ETAPE2_UPLOAD_JUSTIFICATIFS": "checkbox2-3",
+                "ETAPE2_DEMANDE_VALIDATION_DOSSIER": "checkbox2-4"
             };
 
             etapes.forEach(etat => {
@@ -2116,23 +2120,22 @@ const DetailsContrat = (props) => {
             const checkbox1_2 = document.getElementById("checkbox1-2");
             if (checkbox1_2) {
                 checkbox1_2.addEventListener("change", function() {
-                    if (checkbox1_2.checked) {
-                        sendDocumentSentRequest(workflowId);
-                    }
+                    const action = checkbox1_2.checked ? "valider" : "invalider";
+                    sendDocumentRequest(workflowId, action);
                 });
             }
             window.dispatchEvent(new Event('MAJCheckbox')); // On surligne les lignes validées
         }
 
-        // Fonction pour envoyer la requête POST lorsque checkbox1-2 est cochée
-        function sendDocumentSentRequest(workflowId) {
+        // Fonction pour envoyer la requête POST en fonction de l'action (valider ou invalider)
+        function sendDocumentRequest(workflowId, action) {
             const token = localStorage.getItem('jwtToken');
             if (!token) {
                 console.error("Jeton non disponible. Veuillez vous reconnecter.");
                 return;
             }
 
-            const url = \`https://starsmanager-edefd7b34118.herokuapp.com/workflows/\${workflowId}/documents-envoyes\`;
+            const url = \`https://starsmanager-edefd7b34118.herokuapp.com/workflows/\${workflowId}/documents-envoyes/\${action}\`;
 
             fetch(url, {
                 method: 'POST',
@@ -2143,13 +2146,12 @@ const DetailsContrat = (props) => {
             })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error("Erreur lors de l'envoi de la requête documents-envoyes");
+                    throw new Error(\`Erreur lors de l'envoi de la requête documents-envoyes/\${action}\`);
                 }
-                console.log("Requête documents-envoyes envoyée avec succès.");
-                triggerWorkflowUpdatedEvent(); // Déclencher l'événement personnalisé
+                console.log(\`Requête documents-envoyes/\${action} envoyée avec succès.\`);
             })
             .catch(error => {
-                console.error("Erreur lors de l'envoi de la requête documents-envoyes :", error);
+                console.error(\`Erreur lors de l'envoi de la requête documents-envoyes/\${action} :\`, error);
             });
         }
 
@@ -2174,8 +2176,14 @@ const DetailsContrat = (props) => {
           <React.Fragment>
             <Script>{`
   document.addEventListener("dataLoaded", function() {
-    if (window.contrat && ["DEMANDE_RECUE", "VISITE_PROGRAMMEE", "VISITE_EFFECTUEE"].includes(window.contrat.statut)) {
-      const etapes = ["etape3", "etape4", "etape5"];
+    if (window.contrat) {
+      let etapes = [];
+      if (["DEMANDE_RECUE", "VISITE_PROGRAMMEE", "VISITE_EFFECTUEE"].includes(window.contrat.statut)) {
+        etapes = ["etape3", "etape4", "etape5"];
+      } else if (window.contrat.statut === "EN_COURS_DE_VALIDATION") {
+        etapes = ["etape1", "etape2", "etape3", "etape4", "etape5"];
+      }
+      
       etapes.forEach(function(etapeId) {
         const etapeElement = document.getElementById(etapeId);
         if (etapeElement) {
@@ -2211,6 +2219,7 @@ const DetailsContrat = (props) => {
                 const reinitGrille = document.getElementById("reinitGrille");
 
                 const boutonValidation = document.getElementById("boutonValidation");
+                const boutonConfirmerValidation = document.getElementById("boutonConfirmerValidation");
                 const fermerPopupValidation = document.getElementById("fermerPopupValidation");
                 const popupValidation = document.getElementById("popupValidation");
 
@@ -2259,6 +2268,10 @@ const DetailsContrat = (props) => {
 
                     boutonValidation.addEventListener("click", function() {
                         ouvrirPopup(popupValidation);
+                    });
+
+                    boutonConfirmerValidation.addEventListener("click", function() {
+                        fermerPopup(popupValidation);
                     });
 
                     fermerPopupValidation.addEventListener("click", function() {
@@ -2948,6 +2961,130 @@ const DetailsContrat = (props) => {
         afficherDocuments();
     })();
 `}</Script>
+          </React.Fragment>
+        </div>
+      </div>
+      <div>
+        <div className="details-contrat-container77">
+          <React.Fragment>
+            <React.Fragment>
+              <Script>{`
+document.addEventListener("DOMContentLoaded", function() {
+    const boutonVerifier = document.getElementById("boutonVerifier");
+
+    if (boutonVerifier) {
+        boutonVerifier.addEventListener("click", function() {
+            sendVerificationRequest(window.contrat.grille_controles[0].id);
+        });
+    }
+});
+
+// Fonction pour envoyer la requête POST pour la vérification
+function sendVerificationRequest(grilleControleId) {
+    const token = localStorage.getItem('jwtToken');
+    if (!token) {
+        sessionStorage.setItem("message", JSON.stringify({ type: "error", text: "Vous devez être connecté pour accéder à cette page." }));
+        window.location.href = "/"; // Rediriger l'utilisateur
+        return;
+    }
+
+    const url = \`https://starsmanager-edefd7b34118.herokuapp.com/grilleControle/\${grilleControleId}/verifier\`;
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Authorization': \`Bearer \${token}\`,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.status === 401) {
+            sessionStorage.setItem("message", JSON.stringify({ type: "error", text: "Votre session a expiré, veuillez vous reconnecter." }));
+            window.location.href = "/"; // Rediriger l'utilisateur
+            return Promise.reject("Unauthorized");
+        } else if (!response.ok) {
+            throw new Error(\`Erreur lors de l'envoi de la requête verifier : \${response.statusText || "Réponse incorrecte"}\`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data === true) {
+            console.log("Requête verifier envoyée avec succès.", data);
+            window.dispatchEvent(new Event('workflowUpdated'));
+            showMessage('success', 'La grille a été vérifiée avec succès !');
+        } else {
+            sessionStorage.setItem('message', JSON.stringify({ type: 'error', text: 'Vérification échouée. Toutes les sections doivent être vides' }));
+            window.location.href = \`/grille-de-controle?id=\${grilleControleId}#verification\`;
+        }
+    })
+    .catch(error => {
+        console.error("Erreur lors de l'envoi de la requête verifier :", error);
+    });
+}
+`}</Script>
+            </React.Fragment>
+          </React.Fragment>
+        </div>
+      </div>
+      <div>
+        <div className="details-contrat-container79">
+          <React.Fragment>
+            <React.Fragment>
+              <Script>{`
+    document.addEventListener("DOMContentLoaded", function() {
+        const boutonValidation = document.getElementById("boutonConfirmerValidation");
+
+        if (boutonValidation) {
+            boutonValidation.addEventListener("click", function() {
+                sendValidationRequest(window.workflow.id);
+            });
+        }
+    });
+
+    // Fonction pour envoyer la requête POST pour demander la validation
+    function sendValidationRequest(workflowId) {
+        const token = localStorage.getItem('jwtToken');
+        if (!token) {
+            sessionStorage.setItem("message", JSON.stringify({ type: "error", text: "Vous devez être connecté pour accéder à cette page." }));
+            window.location.href = "/"; // Rediriger l'utilisateur
+            return;
+        }
+
+        const url = \`https://starsmanager-edefd7b34118.herokuapp.com/workflows/\${workflowId}/demander-validation\`;
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Authorization': \`Bearer \${token}\`,
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.status === 401) {
+                sessionStorage.setItem("message", JSON.stringify({ type: "error", text: "Votre session a expiré, veuillez vous reconnecter." }));
+                window.location.href = "/"; // Rediriger l'utilisateur
+                return Promise.reject("Unauthorized");
+            } else if (!response.ok) {
+                throw new Error(\`Erreur lors de l'envoi de la requête demander-validation : \${response.statusText || "Réponse incorrecte"}\`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const etape8 = data.etapes.find(etape => etape.nom === "ETAPE2_DEMANDE_VALIDATION_DOSSIER");
+            if (etape8 && etape8.terminee) {
+                console.log("Requête demander-validation envoyée avec succès.", data);
+                window.dispatchEvent(new Event('workflowUpdated'));
+                showMessage('success', 'Contrat envoyé au responsable technique pour validation.');
+            } else {
+                showMessage('error', 'Complétez toutes les étapes précédentes avant de faire valider le contrat.');
+            }
+        })
+        .catch(error => {
+            console.error("Erreur lors de l'envoi de la requête demander-validation :", error);
+        });
+    }
+`}</Script>
+            </React.Fragment>
           </React.Fragment>
         </div>
       </div>

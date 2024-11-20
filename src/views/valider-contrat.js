@@ -834,6 +834,7 @@ const ValiderContrat = (props) => {
                 return response.json();
             })
             .then(contrat => {
+                window.contrat = contrat;
                 console.log("Détails du contrat : ", contrat);
                 document.getElementById("adresse1Bien").value = contrat.adresse || '';
                 document.getElementById("CPBien").value = contrat.code_postal || '';
@@ -899,8 +900,8 @@ const ValiderContrat = (props) => {
                     mettreAJourBoutonEditer(boutonEditer, grilleControleId);
                 }
 
-                // Récupérer les détails du client
-                fetchClientDetails(contrat.client_id);
+                // Récupérer les détails de l'utilisateur
+                fetchUserDetails(contrat.user_id);
 
                 // Émettre un événement personnalisé après avoir rempli les données
                 const event = new Event('dataLoaded');
@@ -910,6 +911,53 @@ const ValiderContrat = (props) => {
             .catch(error => {
                 console.error('Erreur:', error.message);
                 //window.location.href = '/contrats?error=notFound';
+            });
+        }
+
+        // Fonction pour récupérer les détails de l'inspecteur
+        function fetchUserDetails(userId) {
+            // Récupérer le token depuis localStorage
+            const token = localStorage.getItem('jwtToken');
+
+            // Vérifier si le token existe
+            if (!token) {
+                sessionStorage.setItem('message', JSON.stringify({ type: 'error', text: 'Vous devez être connecté pour accéder à cette page.' }));
+                window.location.href = '/';
+                return;
+            }
+
+            const url = \`https://starsmanager-edefd7b34118.herokuapp.com/users/\${userId}\`;
+
+            fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Authorization': \`Bearer \${token}\`,  // Ajout du token ici
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                // Si le token est périmé ou invalide, renvoyer à la page de connexion
+                if (response.status === 401) {
+                    sessionStorage.setItem("message", JSON.stringify({ type: "error", text: "Votre session a expiré, veuillez vous reconnecter." }));
+                    window.location.href = '/';
+                    return Promise.reject("Unauthorized");
+                }
+
+                if (!response.ok) {
+                    throw new Error("Utilisateur introuvable");
+                }
+                return response.json();
+            })
+            .then(user => {
+                console.log("Détails de l'utilisateur : ", user);
+                window.user = user;
+                document.getElementById("nomInspecteur").value = \`\${user.prenom} \${user.nom}\`;
+
+                // Récupérer les détails du client
+                fetchClientDetails(contrat.client_id);
+            })
+            .catch(error => {
+                console.error('Erreur lors de la récupération des données utilisateur:', error);
             });
         }
 
@@ -978,6 +1026,7 @@ const ValiderContrat = (props) => {
                 return response.json();
             })
             .then(client => {
+                window.client = client;
                 console.log("Détails du client : ", client);
                 document.getElementById("nomClient").value = client.nom || '';
                 document.getElementById("prenomClient").value = client.prenom || '';
@@ -999,6 +1048,7 @@ const ValiderContrat = (props) => {
                     } else if (client.type === "PARTICULIER" && client.prenom && client.nom) {
                         nomContratElement.textContent = \`\${client.prenom} \${client.nom}\`;  // Pour un particulier, on affiche prénom + nom
                     }
+                    nomContratElement.textContent += \` (\${window.user.prenom} \${window.user.nom})\`;
                 } else {
                     console.error("Élément nomContrat non trouvé dans le DOM.");
                 }

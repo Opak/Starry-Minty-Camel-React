@@ -72,7 +72,10 @@ const CreerContrat = (props) => {
                 </span>
               </div>
             </div>
-            <div id="nouveauClient" className="choixClient">
+            <div
+              id="nouveauClient"
+              className="creer-contrat-nouveau-client choixClient"
+            >
               <div>
                 <span className="texteInfoLogement1">
                   <span>Nouveau client</span>
@@ -374,118 +377,120 @@ const CreerContrat = (props) => {
         </div>
         <div
           id="infosBien"
-          className="creer-contrat-informations-meubl mediumContainer firstContainer containerCentral"
+          className="creer-contrat-informations-meubl1 mediumContainer firstContainer containerCentral"
         >
           <div id="boiteRappel" className="boiteRappel"></div>
-          <div className="creer-contrat-titre-infos-logement1 ligneTitreSousChapitre sousTitreContainer">
-            <span className="titreRubrique">
-              Informations du bien à classer
-            </span>
-          </div>
-          <div className="ligneInfo">
-            <div className="creer-contrat-partie120 partieInfoLogement1">
-              <input type="checkbox" id="sameAdresse" />
-              <label htmlFor="sameAdresse" className="texteInfoLogement1">
-                <span>Même adresse que le client</span>
-                <br></br>
-              </label>
-            </div>
-          </div>
-          <div className="ligneInfo">
-            <div className="partieInfoContrat1">
-              <span className="texteInfoLogement1">
-                <span>Adresse</span>
-                <br></br>
+          <div className="creer-contrat-informations-meubl2 mediumContainer containerCentral">
+            <div className="creer-contrat-titre-infos-logement1 ligneTitreSousChapitre sousTitreContainer">
+              <span className="titreRubrique">
+                Informations du bien à classer
               </span>
             </div>
-            <div className="creer-contrat-partie217 partieInfoContrat2">
-              <textarea
-                id="adresse1Bien"
-                rows="1"
-                placeholder="Adresse"
-                className="textareaContrat"
-              ></textarea>
-              <div>
-                <div className="creer-contrat-container22">
-                  <React.Fragment>
-                    <ul id="adresse2Suggestions" className="suggestions" />
-                  </React.Fragment>
-                </div>
+            <div className="ligneInfo">
+              <div className="creer-contrat-partie120 partieInfoLogement1">
+                <input type="checkbox" id="sameAdresse" />
+                <label htmlFor="sameAdresse" className="texteInfoLogement1">
+                  <span>Même adresse que le client</span>
+                  <br></br>
+                </label>
               </div>
             </div>
-            <div className="creer-contrat-partie36 partieInfoContrat3">
-              <span className="texteInfoLogement1">Adresse (suite)</span>
+            <div className="ligneInfo">
+              <div className="partieInfoContrat1">
+                <span className="texteInfoLogement1">
+                  <span>Adresse</span>
+                  <br></br>
+                </span>
+              </div>
+              <div className="creer-contrat-partie217 partieInfoContrat2">
+                <textarea
+                  id="adresse1Bien"
+                  rows="1"
+                  placeholder="Adresse"
+                  className="textareaContrat"
+                ></textarea>
+                <div>
+                  <div className="creer-contrat-container22">
+                    <React.Fragment>
+                      <ul id="adresse2Suggestions" className="suggestions" />
+                    </React.Fragment>
+                  </div>
+                </div>
+              </div>
+              <div className="creer-contrat-partie36 partieInfoContrat3">
+                <span className="texteInfoLogement1">Adresse (suite)</span>
+              </div>
+              <div className="creer-contrat-partie46 partieInfoContrat4">
+                <textarea
+                  id="adresse2Bien"
+                  rows="1"
+                  placeholder="Adresse (suite)"
+                  className="textareaContrat"
+                ></textarea>
+              </div>
             </div>
-            <div className="creer-contrat-partie46 partieInfoContrat4">
-              <textarea
-                id="adresse2Bien"
-                rows="1"
-                placeholder="Adresse (suite)"
-                className="textareaContrat"
-              ></textarea>
+            <div className="ligneInfo">
+              <div className="partieInfoContrat1">
+                <span className="texteInfoLogement1">
+                  <span>Code postal</span>
+                  <br></br>
+                </span>
+              </div>
+              <div className="creer-contrat-partie218 partieInfoContrat2">
+                <textarea
+                  id="CPBien"
+                  rows="1"
+                  placeholder="Code postal"
+                  className="textareaContrat"
+                ></textarea>
+              </div>
+              <div className="creer-contrat-partie37 partieInfoContrat3">
+                <span className="texteInfoLogement1">Ville</span>
+              </div>
+              <div className="creer-contrat-partie47 partieInfoContrat4">
+                <textarea
+                  id="villeBien"
+                  rows="1"
+                  placeholder="Ville"
+                  className="textareaContrat"
+                ></textarea>
+              </div>
             </div>
+            <div className="creer-contrat-ligne-infos-contact3 ligneInfo">
+              <div className="partieInfoContrat1">
+                <span className="texteInfoLogement1">
+                  <span>Site web</span>
+                  <br></br>
+                </span>
+              </div>
+              <div className="creer-contrat-partie219 partieInfoContrat2">
+                <textarea
+                  id="siteWebBien"
+                  rows="1"
+                  placeholder="Site web"
+                  className="textareaContrat"
+                ></textarea>
+              </div>
+              <div className="creer-contrat-partie38 partieInfoContrat3">
+                <span className="texteInfoLogement1">
+                  <span>Nombre de pièces</span>
+                  <br></br>
+                </span>
+              </div>
+              <div className="creer-contrat-partie48 partieInfoContrat4">
+                <textarea
+                  id="nbPiecesBien"
+                  rows="1"
+                  placeholder="Nombre de pièces"
+                  className="textareaContrat"
+                ></textarea>
+              </div>
+            </div>
+            <div
+              id="ligneErreurs2"
+              className="ligneErreurCreatContrat ligneInfo"
+            ></div>
           </div>
-          <div className="ligneInfo">
-            <div className="partieInfoContrat1">
-              <span className="texteInfoLogement1">
-                <span>Code postal</span>
-                <br></br>
-              </span>
-            </div>
-            <div className="creer-contrat-partie218 partieInfoContrat2">
-              <textarea
-                id="CPBien"
-                rows="1"
-                placeholder="Code postal"
-                className="textareaContrat"
-              ></textarea>
-            </div>
-            <div className="creer-contrat-partie37 partieInfoContrat3">
-              <span className="texteInfoLogement1">Ville</span>
-            </div>
-            <div className="creer-contrat-partie47 partieInfoContrat4">
-              <textarea
-                id="villeBien"
-                rows="1"
-                placeholder="Ville"
-                className="textareaContrat"
-              ></textarea>
-            </div>
-          </div>
-          <div className="creer-contrat-ligne-infos-contact3 ligneInfo">
-            <div className="partieInfoContrat1">
-              <span className="texteInfoLogement1">
-                <span>Site web</span>
-                <br></br>
-              </span>
-            </div>
-            <div className="creer-contrat-partie219 partieInfoContrat2">
-              <textarea
-                id="siteWebBien"
-                rows="1"
-                placeholder="Site web"
-                className="textareaContrat"
-              ></textarea>
-            </div>
-            <div className="creer-contrat-partie38 partieInfoContrat3">
-              <span className="texteInfoLogement1">
-                <span>Nombre de pièces</span>
-                <br></br>
-              </span>
-            </div>
-            <div className="creer-contrat-partie48 partieInfoContrat4">
-              <textarea
-                id="nbPiecesBien"
-                rows="1"
-                placeholder="Nombre de pièces"
-                className="textareaContrat"
-              ></textarea>
-            </div>
-          </div>
-          <div
-            id="ligneErreurs2"
-            className="ligneErreurCreatContrat ligneInfo"
-          ></div>
         </div>
         <div
           id="infosAdd"

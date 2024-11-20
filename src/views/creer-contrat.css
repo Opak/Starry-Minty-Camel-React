@@ -46,10 +46,14 @@
   display: flex;
   flex-direction: column;
 }
+.creer-contrat-nouveau-client {
+  border-radius: var(--dl-radius-radius-radius8);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
 .creer-contrat-rechercher-client {
   flex: 0 0 auto;
   flex-direction: column;
-  padding-bottom: var(--dl-space-space-halfunit);
 }
 .creer-contrat-tableau-liste-clients {
   flex: 0 0 auto;
@@ -180,8 +184,15 @@
 .creer-contrat-bouton-bleu1 {
   position: relative;
 }
-.creer-contrat-informations-meubl {
+.creer-contrat-informations-meubl1 {
   display: none;
+  position: relative;
+  box-shadow: 0px 0px 0px 0px #d4d4d4;
+  flex-direction: column;
+  background-color: var(--dl-color-menu-gris);
+}
+.creer-contrat-informations-meubl2 {
+  width: 100%;
   position: relative;
   flex-direction: column;
 }

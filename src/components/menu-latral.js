@@ -11,13 +11,7 @@ const MenuLatral = (props) => {
     <div id="menuLat" className="menuLateral">
       <div className="containerMenuLatHaut">
         <Link to="/contrats">
-          <div className="menu-latral-cadre-menu11 cadreImgMenu">
-            <img
-              alt={props.imageAlt3}
-              src={props.imageSrc3}
-              className="menu-latral-image imgMenu"
-            />
-          </div>
+          <div className="menu-latral-cadre-menu1 cadreImgMenu"></div>
         </Link>
       </div>
       <div className="containerMenuLatBas">
@@ -37,9 +31,25 @@ const MenuLatral = (props) => {
             </div>
           </div>
         </Link>
+        <Link to="/validation">
+          <div className="cadreImgMenu">
+            <div>
+              <div className="menu-latral-container14">
+                <React.Fragment>
+                  <React.Fragment>
+                    <span style={{ fontSize: '2em', color: 'white' }}>
+                      <i className="fa-solid fa-magnifying-glass menuImg" />
+                    </span>
+                    <span className="menu-label">Validation contrats</span>
+                  </React.Fragment>
+                </React.Fragment>
+              </div>
+            </div>
+          </div>
+        </Link>
         <div className="cadreImgMenu">
           <div>
-            <div className="menu-latral-container14">
+            <div className="menu-latral-container16">
               <React.Fragment>
                 <React.Fragment>
                   <span style={{ fontSize: '2em', color: 'white' }}>
@@ -53,7 +63,7 @@ const MenuLatral = (props) => {
         </div>
         <div id="boutonLogout" className="cadreImgMenu">
           <div>
-            <div className="menu-latral-container16">
+            <div className="menu-latral-container18">
               <React.Fragment>
                 <React.Fragment>
                   <span style={{ fontSize: '2em', color: 'white' }}>
@@ -65,7 +75,7 @@ const MenuLatral = (props) => {
             </div>
           </div>
           <div>
-            <div className="menu-latral-container18">
+            <div className="menu-latral-container20">
               <React.Fragment>
                 <Script>{`
     (function() {
@@ -99,7 +109,7 @@ const MenuLatral = (props) => {
         </div>
       </div>
       <div>
-        <div className="menu-latral-container20">
+        <div className="menu-latral-container22">
           <React.Fragment>
             <style
               dangerouslySetInnerHTML={{
@@ -115,15 +125,11 @@ const MenuLatral = (props) => {
 }
 
 MenuLatral.defaultProps = {
-  imageAlt3: 'image',
   rootClassName: '',
-  imageSrc3: '/logo-removebg-preview-200h.png',
 }
 
 MenuLatral.propTypes = {
-  imageAlt3: PropTypes.string,
   rootClassName: PropTypes.string,
-  imageSrc3: PropTypes.string,
 }
 
 export default MenuLatral
