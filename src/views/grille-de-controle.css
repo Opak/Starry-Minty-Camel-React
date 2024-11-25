@@ -13,22 +13,8 @@
   flex-direction: row-reverse;
   justify-content: flex-start;
 }
-.grille-de-controle-action1 {
-  flex: 0 0 auto;
-  width: auto;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: row-reverse;
-}
-.grille-de-controle-retour-contrat {
-  font-size: 18px;
-}
-.grille-de-controle-icone1 {
-  flex: 0 0 auto;
-  width: auto;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: row-reverse;
+.grille-de-controle-container12 {
+  display: contents;
 }
 .grille-de-controle-titre-infos-logement {
   align-self: stretch;
@@ -174,9 +160,6 @@
   padding-top: var(--dl-space-space-halfunit);
   padding-bottom: var(--dl-space-space-halfunit);
 }
-.grille-de-controle-container12 {
-  display: contents;
-}
 .grille-de-controle-container14 {
   display: contents;
 }
@@ -199,5 +182,11 @@
   display: contents;
 }
 .grille-de-controle-container28 {
+  display: contents;
+}
+.grille-de-controle-container30 {
+  display: contents;
+}
+.grille-de-controle-container32 {
   display: contents;
 }

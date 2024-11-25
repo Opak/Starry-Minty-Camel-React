@@ -2,6 +2,7 @@
   --dl-color-menu-gris: #eff0f1;
   --dl-size-size-large: 144px;
   --dl-size-size-small: 48px;
+  --dl-color-dark-alert: #db5353ff;
   --dl-color-menu-blanc: #ffffff;
   --dl-size-size-medium: 96px;
   --dl-size-size-xlarge: 192px;
@@ -9,28 +10,73 @@
   --dl-space-space-unit: 16px;
   --dl-color-menu-border: #d8e8f2;
   --dl-size-size-xxlarge: 288px;
+  --dl-color-dark-primary: #4e77dfff;
+  --dl-color-dark-success: #5ad158ff;
+  --dl-color-dark-warning: #e2bb2cff;
   --dl-size-size-maxwidth: 1400px;
+  --dl-color-dark-alert100: #3a1f23ff;
+  --dl-color-dark-alert200: #9f3f41ff;
+  --dl-color-dark-alert400: #e68686ff;
+  --dl-color-dark-alert500: #f1babaff;
   --dl-color-theme-accent1: #C9E8FF;
   --dl-color-theme-accent2: #B2D1E6;
   --dl-radius-radius-round: 50%;
+  --dl-color-dark-secondary: #dd637fff;
+  --dl-color-dark-tertiary1: #54ba8fff;
+  --dl-color-dark-tertiary2: #d6684dff;
   --dl-color-theme-primary1: #366092;
   --dl-color-theme-primary2: #538dd5;
   --dl-space-space-halfunit: 8px;
   --dl-space-space-sixunits: 96px;
   --dl-space-space-twounits: 32px;
+  --dl-color-dark-primary100: #2b2e3dff;
+  --dl-color-dark-primary200: #364e8fff;
+  --dl-color-dark-primary250: #7091e5ff;
+  --dl-color-dark-primary275: #5f84e2ff;
+  --dl-color-dark-primary300: #316bffff;
+  --dl-color-dark-primary325: #3d6adcff;
+  --dl-color-dark-primary350: #2b5cd9ff;
+  --dl-color-dark-primary400: #83a0e9ff;
+  --dl-color-dark-primary500: #b8c8f2ff;
+  --dl-color-dark-success100: #1c2f20ff;
+  --dl-color-dark-success200: #387a38ff;
+  --dl-color-dark-success400: #8bdf8aff;
+  --dl-color-dark-success500: #bdedbcff;
+  --dl-color-dark-text-light: #95959dff;
+  --dl-color-dark-warning100: #38311bff;
+  --dl-color-dark-warning200: #988028ff;
+  --dl-color-dark-warning400: #dfc76dff;
+  --dl-color-dark-warning500: #eddfacff;
   --dl-radius-radius-radius2: 2px;
   --dl-radius-radius-radius4: 4px;
   --dl-radius-radius-radius8: 8px;
   --dl-space-space-fiveunits: 80px;
   --dl-space-space-fourunits: 64px;
+  --dl-color-dark-information: #4e77dfff;
   --dl-color-theme-secondary1: #95b3d7;
   --dl-color-theme-secondary2: #F7F7F7;
   --dl-space-space-threeunits: 48px;
+  --dl-color-dark-secondary100: #3a222bff;
+  --dl-color-dark-secondary200: #a04a60ff;
+  --dl-color-dark-secondary400: #e791a5ff;
+  --dl-color-dark-secondary500: #f1c1ccff;
+  --dl-color-dark-text-inactif: #67676fff;
   --dl-color-menu-rougepascool: #d64c4cff;
+  --dl-color-dark-tertiary1-100: #1f332fff;
+  --dl-color-dark-tertiary1-200: #40886bff;
+  --dl-color-dark-tertiary1-400: #87cfb0ff;
+  --dl-color-dark-tertiary1-500: #bbe3d2ff;
+  --dl-color-dark-tertiary2-100: #392321ff;
+  --dl-color-dark-tertiary2-200: #9b4e3dff;
+  --dl-color-dark-tertiary2-400: #e29582ff;
+  --dl-color-dark-tertiary2-500: #efc3b8ff;
+  --dl-color-dark-text-standard: #e2e2e2ff;
   --dl-color-theme-neutral-dark: #222222;
   --dl-radius-radius-cardradius: 8px;
   --dl-color-boutonsactions-bleu: #a3c9f1ff;
   --dl-color-boutonsactions-vert: #66c28eff;
+  --dl-color-dark-information100: #2b2e3dff;
+  --dl-color-dark-information400: #364e8fff;
   --dl-color-theme-neutral-light: #f5f4f4;
   --dl-radius-radius-imageradius: 8px;
   --dl-radius-radius-inputradius: 24px;
@@ -500,6 +546,7 @@
 }
 .titreColonnes {
   color: #2C3E50;
+  position: sticky;
   text-align: center;
   align-items: stretch;
   font-weight: bold;
@@ -655,9 +702,9 @@
 .titreRubrique {
   fill: var(--dl-color-theme-neutral-light);
   color: var(--dl-color-theme-neutral-light);
-  font-size: 20px;
+  font-size: 18px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
 }
 .titreSousChapitre {
   fill: var(--dl-color-theme-neutral-dark);
@@ -694,12 +741,15 @@
 .critereObligatoire {
   color: #ef0606;
 }
+.critereNA {
+  color: black;
+}
 .critereFacultatif {
   color: rgb(0, 0, 255);
 }
 .texteInfoLogement1 {
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
 }
 .select1 {
   width: var(--dl-size-size-large);
@@ -885,7 +935,7 @@
 }
 .texteTitreHeader {
   color: #2C3E50;
-  font-size: 1.5rem;
+  font-size: 25px;
   align-self: flex-start;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
@@ -930,7 +980,7 @@
   top: 105px;
   left: min(96px, 10vw);
   width: calc(100% - min(96px, 10vw));
-  height: calc(100vh - 105px);
+  height: calc(100vh - 110px);
   display: flex;
   overflow: hidden;
   position: relative;
@@ -972,7 +1022,7 @@
   flex: 0 0 auto;
   left: min(96px, 10vw);
   width: calc(100% - min(96px, 10vw));
-  height: 35px;
+  height: 40px;
   display: flex;
   z-index: 1000;
   position: fixed;
@@ -988,11 +1038,6 @@
   border-left-width: 0px;
   border-right-width: 0px;
   border-bottom-width: 1px;
-}
-.texteOptionMenuHeader {
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
 }
 .ligneContrats {
   flex: 0 0 auto;
@@ -1019,9 +1064,9 @@
   justify-content: flex-start;
 }
 .texteTitreColonnesContrats {
-  font-size: 15px;
+  font-size: 12px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
 }
 .celluleLigneContrat {
   height: 100%;
@@ -1093,10 +1138,8 @@
   box-shadow: 5px 5px 10px 0px #6dce53;
 }
 .texteligneContrats {
-  font-size: 15px;
   font-style: normal;
   align-items: center;
-  font-weight: 400;
 }
 .mediumContainer {
   flex: 0 0 auto;
@@ -1246,10 +1289,10 @@
 }
 .texteOnglet {
   color: #2C3E50;
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   transition: all 0.3s ease;
-  font-weight: 600;
+  font-weight: 500;
 }
 .containerRapport {
   top: 153px !important;
@@ -1309,6 +1352,15 @@
   font-weight: 500;
   border-radius: var(--dl-radius-radius-inputradius);
   background-color: #FFA500;
+}
+.statut3-1 {
+  gap: var(--dl-space-space-halfunit);
+  color: white;
+  display: flex;
+  padding: 4px 10px;
+  font-weight: 500;
+  border-radius: var(--dl-radius-radius-inputradius);
+  background-color: var(--dl-color-menu-rougepascool);
 }
 .statut2 {
   gap: var(--dl-space-space-halfunit);
@@ -1495,7 +1547,9 @@
   justify-content: center;
 }
 .boutonActionGrille {
+  color: white;
   border: 1px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   padding-top: var(--dl-space-space-halfunit);
   padding-left: var(--dl-space-space-unit);
@@ -1508,22 +1562,32 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 .boutonActionGrillePetit {
-  border: 1px solid rgba(200, 200, 200, 0.5);
+  gap: 8px;
+  color: white;
+  cursor: pointer;
+  height: 30px;
+  display: flex;
+  padding: 8px 12px;
+  overflow: hidden;
   position: relative;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  padding-top: 4px;
-  padding-left: var(--dl-space-space-halfunit);
-  border-radius: 12px;
-  padding-right: var(--dl-space-space-halfunit);
-  padding-bottom: 4px;
+  font-size: 14px;
+  background: linear-gradient(0deg, #316bff 0%, #7091e5 100%);
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s ease;
+  align-items: center;
+  font-weight: 500;
+  user-select: none;
+  white-space: nowrap;
+  border-radius: 10px;
+  justify-content: center;
+  text-decoration: none;
 }
 .boutonActionGrillePetit:active {
   transform: translate(1px);
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 .boutonBleu {
-  cursor: pointer;
-  background: linear-gradient(135deg, #A3C9F1, #84B6E9);
+  background: linear-gradient(0deg, #316bff 0%, #7091e5 100%);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 .boutonBleu:hover {
@@ -1532,7 +1596,7 @@
 }
 .boutonRouge {
   cursor: pointer;
-  background: linear-gradient(135deg, #D87B7B, #C76464);
+  background: linear-gradient(0deg, #db5353 0%, #e68686 100%);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 .boutonRouge:hover {
@@ -1541,7 +1605,7 @@
 }
 .boutonVert {
   cursor: pointer;
-  background: linear-gradient(135deg, #66C28E, #55A97A);
+  background: linear-gradient(0deg, #54ba8f 0%, #87cfb0 100%);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 .boutonVert:hover {
@@ -1596,18 +1660,8 @@
   padding-right: var(--dl-space-space-unit);
   justify-content: space-between;
 }
-.boutonActionGrillePetit span {
-  color: white;
-  font-size: 16;
-  font-weight: 500;
-}
-.boutonActionGrille span {
-  color: white;
-  font-size: 18;
-  font-weight: 600;
-}
 .celluleValidation {
-  width: 15%;
+  width: 10%;
   min-width: 170px;
   word-wrap: break-word;
   white-space: normal;
@@ -1775,7 +1829,6 @@
   width: 100%;
   height: auto;
   display: flex;
-  position: relative;
   aligh-self: flex-start;
   min-height: var(--dl-size-size-small);
   transition: background-color 0.3s ease;
@@ -1918,6 +1971,7 @@
   flex: 0 0 auto;
   width: 100%;
   display: flex;
+  align-items: center;
   padding-top: var(--dl-space-space-unit);
   padding-left: var(--dl-space-space-unit);
   padding-right: var(--dl-space-space-unit);
@@ -2106,10 +2160,86 @@
   color: #4A90E2;
   font-style: italic;
 }
+.boutonHeader {
+  height: 40px;
+}
+.radioGrilleNon {
+  width: 25px;
+  border: 1px solid #666;
+  cursor: pointer;
+  height: 25px;
+  outline: none;
+  position: relative;
+  appearance: none;
+  background: #fff;
+  border-radius: 50%;
+}
+.radioGrilleOui {
+  width: 25px;
+  border: 1px solid #666;
+  cursor: pointer;
+  height: 25px;
+  outline: none;
+  position: relative;
+  appearance: none;
+  background: #fff;
+  border-radius: 50%;
+}
+.radioGrilleNon:checked::before {
+  top: 50%;
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  content: '';
+  display: block;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: var(--dl-color-dark-alert);
+}
+.radioGrilleOui:checked::before {
+  top: 50%;
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  content: '';
+  display: block;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: var(--dl-color-dark-tertiary1);
+}
+.radioGrilleNon:checked {
+  border: 2px solid alert (Dark);
+}
+.radioGrilleOui:checked {
+  border: 1px solid tertiary1 (Dark);
+}
+.dropdownStatut {
+  border: 1px solid #b0bec5;
+  font-size: 14px;
+  max-width: 50px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-indent: 9px;
+  background-color: inherit;
+}
+.dropdownStatut.critereObligatoire {
+  color: red;
+}
+.dropdownStatut.critereFacultatif {
+  color: blue;
+}
+.celluleValidationPart {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .Content {
-  font-size: 16px;
+  font-size: 14px;
   font-family: Inter;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.15;
   text-transform: none;
   text-decoration: none;

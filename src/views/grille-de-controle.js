@@ -25,27 +25,17 @@ const GrilleDeControle = (props) => {
           id="retourContrat"
           className="grille-de-controle-menu cadreMenuHeader"
         >
-          <div className="grille-de-controle-action1 cadreActionMenuHeader">
-            <span className="grille-de-controle-retour-contrat texteOptionMenuHeader">
-              Retour au contrat
-            </span>
-          </div>
-          <div className="grille-de-controle-icone1 cadreIconeMenuHeader">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              className="iconeMenuHeader"
-            >
-              <path
-                d="m2 11l7-9v5c11.953 0 13.332 9.678 13 15c-.502-2.685-.735-7-13-7v5z"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></path>
-            </svg>
+          <div className="boutonHeader boutonActionGrillePetit boutonBleu">
+            <div>
+              <div className="grille-de-controle-container12">
+                <React.Fragment>
+                  <span style={{ fontSize: '14px', color: 'white' }}>
+                    <i className="fa-solid fa-chevron-left" />
+                  </span>
+                </React.Fragment>
+              </div>
+            </div>
+            <span>Retourner au contrat</span>
           </div>
         </div>
       </div>
@@ -397,7 +387,7 @@ const GrilleDeControle = (props) => {
         </div>
       </div>
       <div>
-        <div className="grille-de-controle-container12">
+        <div className="grille-de-controle-container14">
           <React.Fragment>
             <React.Fragment>
               <Script type="text/javascript">{`
@@ -630,14 +620,24 @@ const GrilleDeControle = (props) => {
     select3Value,
     peutEtreNonAppliquable,
   }) {
-    // Ajouter des états pour le statut et la classe
-    const [statutDisplay, setStatutDisplay] = useState("");
-    const [statutClass, setStatutClass] = useState("");
+    // État pour la valeur sélectionnée du statut du critère
+    const [selectedStatutCritere, setSelectedStatutCritere] = useState("");
 
-    // Déterminer les options de radio à afficher
-    const radiosToDisplay = peutEtreNonAppliquable
-      ? ["Oui", "Non", "NA"]
-      : ["Oui", "Non"];
+    // Fonction pour gérer le changement du statut
+    function handleStatutChange(event) {
+      const value = event.target.value;
+      setSelectedStatutCritere(value);
+
+      // Mettre à jour la classe du dropdown en fonction de la valeur sélectionnée
+      const selectElement = event.target;
+      let newClassName = "dropdownStatut";
+      if (value === "OBLIGATOIRE") {
+        newClassName += " critereObligatoire";
+      } else if (value === "OPTIONNEL") {
+        newClassName += " critereFacultatif";
+      }
+      selectElement.className = newClassName;
+    }
 
     return React.createElement(
       "div",
@@ -667,7 +667,17 @@ const GrilleDeControle = (props) => {
       React.createElement(
         "div",
         { className: "cellule celluleStatut" },
-        React.createElement("span", null, "") // Initialiser avec une valeur vide
+        peutEtreNonAppliquable
+          ? React.createElement(
+              "select",
+              {
+                id: \`statut\${numCritere}\`,
+                className: "dropdownStatut",
+                onChange: handleStatutChange,
+                value: selectedStatutCritere,
+              }
+            )
+          : React.createElement("span", null, "") // Initialiser avec une valeur vide pour les critères non applicables
       ),
       // Points du critère
       React.createElement(
@@ -687,23 +697,30 @@ const GrilleDeControle = (props) => {
       React.createElement(
         "div",
         { className: "cellule celluleValidation" },
-        radiosToDisplay.map((label, index) => [
-          React.createElement("input", {
-            type: "radio",
-            id: \`radio\${numCritere}-\${index + 1}\`,
-            name: \`radio\${numCritere}\`,
-            key: \`input-\${index}\`,
-          }),
+        [
           React.createElement(
-            "label",
-            {
-              htmlFor: \`radio\${numCritere}-\${index + 1}\`,
-              className: "optionRadio",
-              key: \`label-\${index}\`,
-            },
-            label
+            "div",
+            { className: "celluleValidationPart" },
+            React.createElement("input", {
+              type: "radio",
+              className: "radioGrilleOui",
+              id: \`radio\${numCritere}-1\`,
+              name: \`radio\${numCritere}\`,
+              key: \`input-oui\`,
+            })
           ),
-        ])
+          React.createElement(
+            "div",
+            { className: "celluleValidationPart" },
+            React.createElement("input", {
+              type: "radio",
+              className: "radioGrilleNon",
+              id: \`radio\${numCritere}-2\`,
+              name: \`radio\${numCritere}\`,
+              key: \`input-non\`,
+            })
+          ),
+        ]
       ),
       // Points obtenus
       React.createElement(
@@ -1118,15 +1135,12 @@ const GrilleDeControle = (props) => {
       }
     }
 
-    // Fonction pour traiter les données supplémentaires et mettre à jour la grille
     function processAdditionalData(grilleControle, additionalData) {
       if (grilleControle && additionalData) {
         // Réactiver tous les critères avant de les mettre à jour
         reactiverTousLesCriteres();
 
-        if (
-          additionalData.reponses
-        ) {
+        if (additionalData.reponses) {
           console.log("Mise à jour des critères en fonction des réponses de l'API.");
 
           additionalData.reponses.forEach((reponse) => {
@@ -1139,6 +1153,7 @@ const GrilleDeControle = (props) => {
               let statutClass = "";
 
               if (reponse.statut_critere) {
+                // Appliquer la logique du statut du critère
                 switch (reponse.statut_critere) {
                   case "OPTIONNEL":
                     statutDisplay = "o";
@@ -1163,13 +1178,70 @@ const GrilleDeControle = (props) => {
                     );
                 }
 
-                // Mettre à jour l'affichage du statut du critère
-                const statutElement = document.querySelector(
-                  \`#crit\${reponse.num_critere} .celluleStatut span\`
-                );
-                if (statutElement) {
-                  statutElement.textContent = statutDisplay;
-                  statutElement.parentElement.className = \`cellule celluleStatut \${statutClass}\`;
+                // Vérifier si la ligne du critère contient le dropdownStatut
+                const dropdownStatut = critereElement.querySelector('.dropdownStatut');
+
+                if (dropdownStatut) {
+                  // Si le dropdownStatut existe, mettre à jour les options et la sélection
+                  // Mettre à jour les options avec les bonnes valeurs et labels
+                  dropdownStatut.innerHTML = ""; // Vider le dropdown avant de le remplir
+
+                  // Option 1 : reponse.statut_critere
+                  const option1 = document.createElement("option");
+                  option1.value = reponse.statut_critere;
+                  option1.text = statutDisplay;
+                  option1.className = statutClass; // Appliquer la classe à l'option
+                  dropdownStatut.appendChild(option1);
+
+                  // Option 2 : NON_APPLICABLE
+                  const option2 = document.createElement("option");
+                  option2.value = "NON_APPLICABLE";
+                  option2.text = "NA";
+                  option2.className = "critereNA";
+                  dropdownStatut.appendChild(option2);
+
+                  // Sélectionner l'option appropriée en fonction de reponse.statut_validation
+                  if (
+                    reponse.statut_validation === "VALIDE" ||
+                    reponse.statut_validation === "NON_VALIDE"
+                  ) {
+                    dropdownStatut.selectedIndex = 0; // Sélectionne la première option
+                    dropdownStatut.style.textIndent = "9px"; // Définit text-indent pour l'option 1
+                  } else if (reponse.statut_validation === "NON_APPLICABLE") {
+                    dropdownStatut.selectedIndex = 1; // Sélectionne la deuxième option
+                    dropdownStatut.style.textIndent = "2px"; // Définit text-indent pour l'option 2
+                  }
+
+                  // Ajouter un écouteur de changement pour mettre à jour automatiquement text-indent
+                  if (dropdownStatut) {
+                    dropdownStatut.addEventListener("change", function () {
+                      if (dropdownStatut.selectedIndex === 0) {
+                        dropdownStatut.style.textIndent = "9px";
+                      } else if (dropdownStatut.selectedIndex === 1) {
+                        dropdownStatut.style.textIndent = "2px";
+                      }
+                    });
+                  }
+
+                  // Mettre à jour la classe du dropdown en fonction de la valeur sélectionnée
+                  let newClassName = "dropdownStatut";
+                  if (reponse.statut_validation === "NON_APPLICABLE") {
+                    newClassName += "";
+                  } else if (reponse.statut_critere === "OBLIGATOIRE") {
+                    newClassName += " critereObligatoire";
+                  } else if (reponse.statut_critere === "OPTIONNEL") {
+                    newClassName += " critereFacultatif";
+                  }
+                  dropdownStatut.className = newClassName;
+
+                } else {
+                  // Garder la logique actuelle si le dropdownStatut n'existe pas
+                  // Mettre à jour l'affichage du statut du critère
+                  const statutElement = critereElement.querySelector('.celluleStatut span');
+                  if (statutElement) {
+                    statutElement.textContent = statutDisplay;
+                    statutElement.parentElement.className = \`cellule celluleStatut \${statutClass}\`;
+                  }
                 }
               }
 
@@ -1279,7 +1351,10 @@ const GrilleDeControle = (props) => {
     // Define the header line here
     const ligneHeader = React.createElement(
       "div",
-      { className: "ligneCommune titreColonnes" },
+      { 
+        className: "ligneCommune titreColonnes",
+        id: "ligneTitre"
+      },
       React.createElement(
         "div",
         { className: "cellule celluleNum" },
@@ -1319,11 +1394,18 @@ const GrilleDeControle = (props) => {
       React.createElement(
         "div",
         { className: "cellule celluleValidation" },
-        React.createElement(
-          "span",
-          { className: "texteTitreColonne" },
-          "Validation du critère"
-        )
+        [
+          React.createElement(
+            "div",
+            { className: "celluleValidationPart" },
+            React.createElement("span", { className: "texteTitreColonne" }, "Oui")
+          ),
+          React.createElement(
+            "div",
+            { className: "celluleValidationPart" },
+            React.createElement("span", { className: "texteTitreColonne" }, "Non")
+          ),
+        ]
       ),
       React.createElement(
         "div",
@@ -1393,7 +1475,7 @@ const GrilleDeControle = (props) => {
         </div>
       </div>
       <div>
-        <div className="grille-de-controle-container14">
+        <div className="grille-de-controle-container16">
           <React.Fragment>
             <React.Fragment>
               <Script>{`  
@@ -1514,7 +1596,7 @@ const GrilleDeControle = (props) => {
         </div>
       </div>
       <div>
-        <div className="grille-de-controle-container16">
+        <div className="grille-de-controle-container18">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -1619,7 +1701,7 @@ const GrilleDeControle = (props) => {
         </div>
       </div>
       <div>
-        <div className="grille-de-controle-container18">
+        <div className="grille-de-controle-container20">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -1743,7 +1825,7 @@ const GrilleDeControle = (props) => {
         </div>
       </div>
       <div>
-        <div className="grille-de-controle-container20">
+        <div className="grille-de-controle-container22">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -1801,10 +1883,13 @@ const GrilleDeControle = (props) => {
                     const responseData = await response.json();
                     console.log("Success:", responseData); // Log principal de la réponse
 
-                    // Cocher la radio après retour positif du back
-                    const radioElement = document.getElementById(\`radio\${numCritere}-\${getStatutIndex(statut)}\`);
-                    if (radioElement) {
-                        radioElement.checked = true;
+                    // Cocher la radio après retour positif du back si le statut est VALIDE ou NON_VALIDE
+                    const statutIndex = getStatutIndex(statut);
+                    if (statutIndex) {
+                        const radioElement = document.getElementById(\`radio\${numCritere}-\${statutIndex}\`);
+                        if (radioElement) {
+                            radioElement.checked = true;
+                        }
                     }
 
                     // Mettre à jour le contenu de la cellule pointsObtenus
@@ -1812,7 +1897,7 @@ const GrilleDeControle = (props) => {
                     if (pointsCell) {
                         pointsCell.textContent = responseData.points_obtenus;
                     }
-                    
+
                     return;
                 } catch (error) {
                     if (attempt < retries - 1) {
@@ -1830,25 +1915,65 @@ const GrilleDeControle = (props) => {
             const config = { childList: true, subtree: true };
 
             const observer = new MutationObserver(function (mutationsList, observer) {
-                // Recherchez les éléments radio
+                // Recherchez les éléments radio et les dropdowns
                 const radios = document.querySelectorAll("input[type='radio']");
-                if (radios.length > 0) {
-                    console.log("Grille chargée, ajout des écouteurs d'événements aux radios.");
-                    
+                const dropdowns = document.querySelectorAll("select.dropdownStatut");
+
+                if (radios.length > 0 || dropdowns.length > 0) {
+                    console.log("Grille chargée, ajout des écouteurs d'événements aux radios et aux dropdowns.");
+
                     // Ajoutez les écouteurs d'événements à chaque radio
                     radios.forEach(radio => {
                         radio.addEventListener("click", function(event) {
                             const radioId = event.target.id;
                             const numCritere = extractNumCritere(radioId);
                             const statut = getStatut(radioId);
-                            
+
                             // Désélectionner la radio temporairement
                             event.target.checked = false;
-                            
+
                             // Envoie la réponse au back-end
                             envoyerReponse(getUrlParameter("id"), numCritere, statut);
                         });
                     });
+
+                    // Ajoutez les écouteurs d'événements à chaque dropdown
+                    dropdowns.forEach(dropdown => {
+                        dropdown.addEventListener("change", function(event) {
+                            const dropdownId = event.target.id;
+                            const numCritere = extractNumCritereFromDropdownId(dropdownId);
+                            const statut = getStatutFromDropdownValue(event.target.value);
+
+                            // Envoie la réponse au back-end
+                            envoyerReponse(getUrlParameter("id"), numCritere, statut);
+
+                            // Ajuster les radios en fonction de la sélection du dropdown
+                            const ligneCritere = document.getElementById(\`crit\${numCritere}\`);
+                            if (ligneCritere) {
+                                const radios = ligneCritere.querySelectorAll('input[type="radio"]');
+                                const celluleValidation = ligneCritere.querySelector('.celluleValidation');
+                                if (event.target.value === 'NON_APPLICABLE') {
+                                    radios.forEach(radio => {
+                                        radio.checked = false;
+                                        radio.disabled = true;
+                                        radio.style.cursor = "not-allowed";
+                                    });
+                                    if (celluleValidation) {
+                                        celluleValidation.style.opacity = "0.5";
+                                    }
+                                } else {
+                                    radios.forEach(radio => {
+                                        radio.disabled = false;
+                                        radio.style.cursor = "default";
+                                    });
+                                    if (celluleValidation) {
+                                        celluleValidation.style.opacity = "1";
+                                    }
+                                }
+                            }
+                        });
+                    });
+
                     // Arrêtez d'observer une fois les écouteurs ajoutés
                     observer.disconnect();
                 }
@@ -1858,6 +1983,54 @@ const GrilleDeControle = (props) => {
             observer.observe(targetNode, config);
         }
 
+        // Fonction pour extraire le numéro de critère de l'ID du bouton radio
+        function extractNumCritere(radioId) {
+            const match = radioId.match(/radio([^-]+)-/);
+            return match ? match[1] : null;
+        }
+
+        // Fonction pour extraire le numéro de critère de l'ID du dropdown
+        function extractNumCritereFromDropdownId(dropdownId) {
+            const match = dropdownId.match(/statut([^-]+)/);
+            return match ? match[1] : null;
+        }
+
+        // Fonction pour déterminer le statut en fonction de la radio sélectionnée
+        function getStatut(radioId) {
+            const suffix = radioId.split("-")[1];
+            if (suffix === "1") return "VALIDE";
+            if (suffix === "2") return "NON_VALIDE";
+            return null;
+        }
+
+        // Fonction pour déterminer le statut en fonction de la valeur du dropdown
+        function getStatutFromDropdownValue(value) {
+            if (value === "NON_APPLICABLE") {
+                return "NON_APPLICABLE";
+            } else {
+                return null; // Pour l'option 1, on envoie null
+            }
+        }
+
+        // Fonction pour obtenir l'index du statut pour l'ID du bouton radio
+        function getStatutIndex(statut) {
+            if (statut === "VALIDE") return 1;
+            if (statut === "NON_VALIDE") return 2;
+            return null;
+        }
+
+        // Fonction pour extraire les paramètres de l'URL
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Appel à la fonction après que la grille est rendue
+        window.addEventListener("load", function() {
+            surveillerEtAjouterEcouteurs(); // Lancer la surveillance et ajouter les écouteurs d'événements après le chargement de la grille
+        });
+
+        // Les autres fonctions restent inchangées
         // Fonction pour afficher la liste des critères obligatoires non validés
         window.afficherCriteresObligatoiresNonValides = function(criteres) {
             const listeCriteresElement = document.getElementById("listeCriteresOnV");
@@ -1877,7 +2050,7 @@ const GrilleDeControle = (props) => {
                         const lien = document.createElement("a");
                         lien.href = \`#crit\${critereNum}\`;
                         lien.textContent = \`Critère \${critereNum}\`;
-                        
+
                         // Ajoute le lien à la liste
                         const listItem = document.createElement("li");
                         listItem.appendChild(lien);
@@ -1907,38 +2080,6 @@ const GrilleDeControle = (props) => {
                 }
             }
         }
-
-        // Fonction pour extraire le numéro de critère de l'ID du bouton radio
-        function extractNumCritere(radioId) {
-            const match = radioId.match(/radio([^-]+)-/);
-            return match ? match[1] : null;
-        }
-
-        // Fonction pour déterminer le statut en fonction de la radio sélectionnée
-        function getStatut(radioId) {
-            const suffix = radioId.split("-")[1];
-            if (suffix === "1") return "VALIDE";
-            if (suffix === "2") return "NON_VALIDE";
-            return "NON_APPLICABLE";
-        }
-
-        // Fonction pour obtenir l'index du statut pour l'ID du bouton radio
-        function getStatutIndex(statut) {
-            if (statut === "VALIDE") return 1;
-            if (statut === "NON_VALIDE") return 2;
-            return 3;
-        }
-
-        // Fonction pour extraire les paramètres de l'URL
-        function getUrlParameter(name) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(name);
-        }
-
-        // Appel à la fonction après que la grille est rendue
-        window.addEventListener("load", function() {
-            surveillerEtAjouterEcouteurs(); // Lancer la surveillance et ajouter les écouteurs d'événements après le chargement de la grille
-        });
     })();
 `}</Script>
             </React.Fragment>
@@ -1946,7 +2087,7 @@ const GrilleDeControle = (props) => {
         </div>
       </div>
       <div>
-        <div className="grille-de-controle-container22">
+        <div className="grille-de-controle-container24">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -2091,7 +2232,7 @@ const GrilleDeControle = (props) => {
         </div>
       </div>
       <div>
-        <div className="grille-de-controle-container24">
+        <div className="grille-de-controle-container26">
           <React.Fragment>
             <style
               dangerouslySetInnerHTML={{
@@ -2103,7 +2244,7 @@ const GrilleDeControle = (props) => {
         </div>
       </div>
       <div>
-        <div className="grille-de-controle-container26">
+        <div className="grille-de-controle-container28">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -2125,7 +2266,7 @@ const GrilleDeControle = (props) => {
         </div>
       </div>
       <div>
-        <div className="grille-de-controle-container28">
+        <div className="grille-de-controle-container30">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -2250,6 +2391,70 @@ const GrilleDeControle = (props) => {
         } else {
             afficherGrille();
         }
+    })();
+`}</Script>
+            </React.Fragment>
+          </React.Fragment>
+        </div>
+      </div>
+      <div>
+        <div className="grille-de-controle-container32">
+          <React.Fragment>
+            <React.Fragment>
+              <Script>{`
+    (function() {
+        document.addEventListener("grilleRenderComplete", function() {
+            // Vérifier que la ligne titre existe avant d'ajouter l'écouteur
+            const ligneTitreOriginale = document.getElementById("ligneTitre");
+            const grilleContainer = document.getElementById("grilleContainer");
+
+            if (ligneTitreOriginale && grilleContainer) {
+                // Ajouter l'écouteur de scroll à grilleContainer
+                grilleContainer.addEventListener("scroll", function() {
+                    let ligneTitreClone = document.getElementById("ligneTitreClone");
+
+                    // Créer un clone si celui-ci n'existe pas encore
+                    if (!ligneTitreClone) {
+                        ligneTitreClone = ligneTitreOriginale.cloneNode(true);
+                        ligneTitreClone.id = "ligneTitreClone"; // Assigner un nouvel ID au clone
+                        ligneTitreClone.classList.add("ligneFixee");
+                        grilleContainer.appendChild(ligneTitreClone); // Ajouter le clone dans grilleContainer
+
+                        // Styles spécifiques pour la version clonée
+                        ligneTitreClone.style.position = "fixed";
+                        ligneTitreClone.style.top = "110px"; // Déplacer la ligne titre à 110px du haut
+                        ligneTitreClone.style.left = ligneTitreOriginale.getBoundingClientRect().left + "px";
+                        ligneTitreClone.style.width = ligneTitreOriginale.offsetWidth + "px";
+                        ligneTitreClone.style.zIndex = "10000";
+
+                        // Conserver les styles de flexbox
+                        ligneTitreClone.style.display = "flex"; // Assurer que le clone utilise bien flexbox
+                        ligneTitreClone.style.alignItems = ligneTitreOriginale.style.alignItems || "center"; // Aligner correctement le contenu
+                        ligneTitreClone.style.justifyContent = ligneTitreOriginale.style.justifyContent || "space-between"; // S'assurer que le contenu est espacé de la même manière
+
+                        // Supprimer le border-radius et ajouter un style pour le mettre en avant
+                        ligneTitreClone.style.borderRadius = "0"; // Supprimer les coins arrondis
+                        ligneTitreClone.style.boxShadow = "0px 2px 4px rgba(0, 0, 0, 0.05)"; // Réduire l'ombre pour un effet plus subtil
+                    }
+
+                    // Afficher ou masquer le clone selon le scroll
+                    if (grilleContainer.scrollTop > ligneTitreOriginale.getBoundingClientRect().bottom) {
+                        ligneTitreClone.style.display = "flex";
+                    } else {
+                        ligneTitreClone.style.display = "none";
+                    }
+                });
+
+                // Ajuster dynamiquement la largeur du clone lors du redimensionnement de la fenêtre
+                window.addEventListener("resize", function() {
+                    const ligneTitreClone = document.getElementById("ligneTitreClone");
+                    if (ligneTitreClone) {
+                        ligneTitreClone.style.width = ligneTitreOriginale.offsetWidth + "px";
+                        ligneTitreClone.style.left = ligneTitreOriginale.getBoundingClientRect().left + "px";
+                    }
+                });
+            }
+        });
     })();
 `}</Script>
             </React.Fragment>

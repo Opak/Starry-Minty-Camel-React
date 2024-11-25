@@ -20,6 +20,9 @@
 .contrats-navlink {
   display: contents;
 }
+.contrats-container3 {
+  display: contents;
+}
 .contrats-barre-de-recherche {
   flex: 0 0 auto;
   width: 30%;
@@ -39,14 +42,14 @@
 .contrats-titre-des-colonnes {
   padding-bottom: var(--dl-space-space-halfunit);
 }
-.contrats-text16 {
+.contrats-text17 {
   align-self: center;
 }
-.contrats-container2 {
+.contrats-container4 {
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
 }
-.contrats-container4 {
+.contrats-container6 {
   display: contents;
 }

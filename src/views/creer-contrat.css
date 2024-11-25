@@ -15,24 +15,15 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-start;
+}
+.creer-contrat-navlink {
+  display: contents;
+}
+.creer-contrat-liste-contrats {
   text-decoration: none;
 }
-.creer-contrat-action1 {
-  flex: 0 0 auto;
-  width: auto;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: row-reverse;
-}
-.creer-contrat-retour-contrat {
-  font-size: 18px;
-}
-.creer-contrat-container11 {
-  flex: 0 0 auto;
-  width: auto;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: row-reverse;
+.creer-contrat-container12 {
+  display: contents;
 }
 .creer-contrat-main-container {
   z-index: 100;
@@ -84,7 +75,7 @@
   margin-left: var(--dl-space-space-halfunit);
   margin-right: var(--dl-space-space-halfunit);
 }
-.creer-contrat-container15 {
+.creer-contrat-container16 {
   flex: 0 0 auto;
   display: flex;
 }
@@ -92,7 +83,7 @@
   margin-left: var(--dl-space-space-twounits);
   margin-right: var(--dl-space-space-halfunit);
 }
-.creer-contrat-container16 {
+.creer-contrat-container17 {
   flex: 0 0 auto;
   display: flex;
 }
@@ -129,7 +120,7 @@
   align-items: flex-start;
   flex-direction: column;
 }
-.creer-contrat-container19 {
+.creer-contrat-container20 {
   display: contents;
 }
 .creer-contrat-partie33 {
@@ -175,7 +166,7 @@
   align-items: flex-start;
   flex-direction: row;
 }
-.creer-contrat-container20 {
+.creer-contrat-container21 {
   background-color: var(--dl-color-menu-blanc);
 }
 .creer-contrat-bouton-rouge1 {
@@ -211,7 +202,7 @@
   align-items: flex-start;
   flex-direction: column;
 }
-.creer-contrat-container22 {
+.creer-contrat-container23 {
   display: contents;
 }
 .creer-contrat-partie36 {
@@ -296,10 +287,10 @@
   display: flex;
   flex-direction: row;
 }
-.creer-contrat-container24 {
+.creer-contrat-container25 {
   display: contents;
 }
-.creer-contrat-container25 {
+.creer-contrat-container26 {
   background-color: var(--dl-color-menu-blanc);
 }
 .creer-contrat-bouton-rouge2 {
@@ -308,27 +299,27 @@
 .creer-contrat-bouton-bleu2 {
   position: relative;
 }
-.creer-contrat-container27 {
+.creer-contrat-container28 {
   display: contents;
 }
-.creer-contrat-container29 {
+.creer-contrat-container30 {
   display: contents;
 }
-.creer-contrat-container31 {
+.creer-contrat-container32 {
   display: contents;
 }
-.creer-contrat-container33 {
+.creer-contrat-container34 {
   display: contents;
 }
-.creer-contrat-container35 {
+.creer-contrat-container36 {
   display: contents;
 }
-.creer-contrat-container37 {
+.creer-contrat-container38 {
   display: contents;
 }
-.creer-contrat-container39 {
+.creer-contrat-container40 {
   display: contents;
 }
-.creer-contrat-container41 {
+.creer-contrat-container42 {
   display: contents;
 }

@@ -19,35 +19,25 @@ const CreerContrat = (props) => {
         <div className="creer-contrat-titre1 cadreTitreHeader">
           <h1 className="texteTitreHeader">Nouveau contrat</h1>
         </div>
-        <Link to="/contrats">
-          <div
-            id="boutonListeContrats"
-            className="creer-contrat-menu cadreMenuHeader"
-          >
-            <div className="creer-contrat-action1 cadreActionMenuHeader">
-              <span className="creer-contrat-retour-contrat texteOptionMenuHeader">
-                Liste des contrats
-              </span>
+        <div
+          id="boutonListeContrats"
+          className="creer-contrat-menu cadreMenuHeader"
+        >
+          <Link to="/contrats" className="creer-contrat-navlink">
+            <div className="creer-contrat-liste-contrats boutonHeader boutonActionGrillePetit boutonBleu">
+              <div>
+                <div className="creer-contrat-container12">
+                  <React.Fragment>
+                    <span style={{ fontSize: '14px', color: 'white' }}>
+                      <i className="fa-solid fa-chevron-left" />
+                    </span>
+                  </React.Fragment>
+                </div>
+              </div>
+              <span>Liste des contrats</span>
             </div>
-            <div className="creer-contrat-container11 cadreIconeMenuHeader">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                className="iconeMenuHeader"
-              >
-                <path
-                  d="m2 11l7-9v5c11.953 0 13.332 9.678 13 15c-.502-2.685-.735-7-13-7v5z"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></path>
-              </svg>
-            </div>
-          </div>
-        </Link>
+          </Link>
+        </div>
       </div>
       <div
         id="newContratContainer"
@@ -166,7 +156,7 @@ const CreerContrat = (props) => {
                     <br></br>
                   </label>
                 </div>
-                <div className="creer-contrat-container15 radioContrat">
+                <div className="creer-contrat-container16 radioContrat">
                   <input
                     type="radio"
                     id="madame"
@@ -179,7 +169,7 @@ const CreerContrat = (props) => {
                     <br></br>
                   </label>
                 </div>
-                <div className="creer-contrat-container16 radioContrat">
+                <div className="creer-contrat-container17 radioContrat">
                   <input
                     type="radio"
                     id="mademoiselle"
@@ -264,7 +254,7 @@ const CreerContrat = (props) => {
                   className="textareaContrat"
                 ></textarea>
                 <div>
-                  <div className="creer-contrat-container19">
+                  <div className="creer-contrat-container20">
                     <React.Fragment>
                       <React.Fragment>
                         <ul id="adresseSuggestions" className="suggestions" />
@@ -353,7 +343,7 @@ const CreerContrat = (props) => {
               id="ligneErreurs1"
               className="ligneErreurCreatContrat ligneInfo"
             ></div>
-            <div className="creer-contrat-container20 containerBoutons">
+            <div className="creer-contrat-container21 containerBoutons">
               <div
                 id="boutonAnnulerClient"
                 className="creer-contrat-bouton-rouge1 boutonActionGrille actionGrilleDeControle boutonRouge"
@@ -410,7 +400,7 @@ const CreerContrat = (props) => {
                   className="textareaContrat"
                 ></textarea>
                 <div>
-                  <div className="creer-contrat-container22">
+                  <div className="creer-contrat-container23">
                     <React.Fragment>
                       <ul id="adresse2Suggestions" className="suggestions" />
                     </React.Fragment>
@@ -549,7 +539,7 @@ const CreerContrat = (props) => {
                 className="textareaContrat"
               />
               <div>
-                <div className="creer-contrat-container24">
+                <div className="creer-contrat-container25">
                   <React.Fragment>
                     <Script>{`
   (function() {
@@ -585,7 +575,7 @@ const CreerContrat = (props) => {
             id="ligneErreurs3"
             className="ligneErreurCreatContrat ligneInfo"
           ></div>
-          <div className="creer-contrat-container25 containerBoutons">
+          <div className="creer-contrat-container26 containerBoutons">
             <div
               id="boutonAnnuler"
               className="creer-contrat-bouton-rouge2 boutonActionGrille actionGrilleDeControle boutonRouge"
@@ -608,7 +598,7 @@ const CreerContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="creer-contrat-container27">
+        <div className="creer-contrat-container28">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -716,7 +706,7 @@ const CreerContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="creer-contrat-container29">
+        <div className="creer-contrat-container30">
           <React.Fragment>
             <Script>{`
     (function() {
@@ -978,7 +968,7 @@ const CreerContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="creer-contrat-container31">
+        <div className="creer-contrat-container32">
           <React.Fragment>
             <React.Fragment>
               <style
@@ -1213,7 +1203,7 @@ const CreerContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="creer-contrat-container33">
+        <div className="creer-contrat-container34">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -1371,7 +1361,7 @@ const CreerContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="creer-contrat-container35">
+        <div className="creer-contrat-container36">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -1390,7 +1380,7 @@ const CreerContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="creer-contrat-container37">
+        <div className="creer-contrat-container38">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -1581,7 +1571,7 @@ const CreerContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="creer-contrat-container39">
+        <div className="creer-contrat-container40">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -1656,7 +1646,7 @@ const CreerContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="creer-contrat-container41">
+        <div className="creer-contrat-container42">
           <React.Fragment>
             <React.Fragment>
               <Script>{`

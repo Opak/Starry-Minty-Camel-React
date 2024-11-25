@@ -23,24 +23,18 @@ const Contrats = (props) => {
           <Link to="/creer-contrat" className="contrats-navlink">
             <div
               id="boutonNewContrat"
-              className="cadreActionMenuHeader cadreMenuHeader"
+              className="boutonHeader boutonActionGrillePetit boutonBleu"
             >
-              <div className="cadreIconeMenuHeader">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  className="iconeMenuHeader"
-                >
-                  <path
-                    d="M22 5v2h-3v3h-2V7h-3V5h3V2h2v3Zm-3 14H5V5h6V3H5a2.006 2.006 0 0 0-2 2v14a2.006 2.006 0 0 0 2 2h14a2.006 2.006 0 0 0 2-2v-6h-2Z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
+              <div>
+                <div className="contrats-container3">
+                  <React.Fragment>
+                    <span style={{ fontSize: '14px', color: 'white' }}>
+                      <i className="fa-solid fa-plus" />
+                    </span>
+                  </React.Fragment>
+                </div>
               </div>
-              <div className="cadreTexteActionMenuHeader">
-                <span className="texteOptionMenuHeader">Nouveau contrat</span>
-              </div>
+              <span>Créer un nouveau contrat</span>
             </div>
           </Link>
           <div className="contrats-barre-de-recherche">
@@ -75,7 +69,7 @@ const Contrats = (props) => {
               </span>
             </div>
             <div className="celluleDateVisite titreColonnesContrats">
-              <span className="contrats-text16 texteTitreColonnesContrats">
+              <span className="contrats-text17 texteTitreColonnesContrats">
                 <span>Date de visite</span>
                 <br></br>
               </span>
@@ -84,11 +78,11 @@ const Contrats = (props) => {
               <span className="texteTitreColonnesContrats">Statut</span>
             </div>
           </div>
-          <div id="tableauListeContrats" className="contrats-container2"></div>
+          <div id="tableauListeContrats" className="contrats-container4"></div>
         </div>
       </div>
       <div>
-        <div className="contrats-container4">
+        <div className="contrats-container6">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -193,6 +187,11 @@ const Contrats = (props) => {
                                 classeStatut = 'statut3';
                                 iconeStatut = '<i class="fa-solid fa-magnifying-glass"></i>';
                                 texteStatut = 'En cours de validation';
+                                break;
+                            case 'NON_CONFORME':
+                                classeStatut = 'statut3-1';
+                                iconeStatut = '<i class="fa-solid fa-triangle-exclamation"></i>';
+                                texteStatut = 'Non-conforme';
                                 break;
                             case 'DECISIONS_A_ENVOYER':
                                 classeStatut = 'statut4';

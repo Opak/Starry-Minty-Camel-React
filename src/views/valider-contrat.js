@@ -29,46 +29,51 @@ const ValiderContrat = (props) => {
              
           </h1>
         </div>
-        <Link to="/contrats">
-          <div className="valider-contrat-menu cadreMenuHeader">
-            <div className="valider-contrat-action1 cadreActionMenuHeader">
-              <span className="valider-contrat-retour-contrat texteOptionMenuHeader">
-                Liste des contrats
-              </span>
+        <div className="valider-contrat-menu cadreMenuHeader">
+          <Link to="/validation" className="valider-contrat-navlink">
+            <div className="valider-contrat-liste-contrats boutonHeader boutonActionGrillePetit boutonBleu">
+              <div>
+                <div className="valider-contrat-container12">
+                  <React.Fragment>
+                    <span style={{ fontSize: '14px', color: 'white' }}>
+                      <i className="fa-solid fa-chevron-left" />
+                    </span>
+                  </React.Fragment>
+                </div>
+              </div>
+              <span>Liste des validations</span>
             </div>
-            <div className="valider-contrat-container11 cadreIconeMenuHeader">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                className="iconeMenuHeader"
-              >
-                <path
-                  d="m2 11l7-9v5c11.953 0 13.332 9.678 13 15c-.502-2.685-.735-7-13-7v5z"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></path>
-              </svg>
-            </div>
-          </div>
-        </Link>
+          </Link>
+        </div>
       </div>
       <div id="docsContainer" className="mainContainer--onglets">
         <div className="valider-contrat-tableau-documents-contrat mediumContainer firstContainer containerCentral">
           <div className="valider-contrat-documents-obligatoires ligneTitreSousChapitre sousTitreContainer">
-            <span>Documents à vérifier</span>
+            <span>Eléments à vérifier</span>
+          </div>
+          <div
+            id="lastMessageCorrection"
+            className="valider-contrat-demande-de-correction ligneBilanPoints"
+          >
+            <div className="nomDocumentContrat">
+              <span className="valider-contrat-contrat-de-service2">
+                <span>Votre dernière demande de correction :</span>
+                <br></br>
+              </span>
+            </div>
+            <div
+              id="lastMessageCorrectionTexte"
+              className="valider-contrat-actions1 actionDocumentContrat"
+            ></div>
           </div>
           <div className="ligneBilanPoints">
             <div className="nomDocumentContrat">
-              <span className="valider-contrat-contrat-de-service3">
+              <span className="valider-contrat-contrat-de-service5">
                 <span>Grille de contrôle</span>
                 <br></br>
               </span>
             </div>
-            <div className="valider-contrat-actions1 actionDocumentContrat">
+            <div className="valider-contrat-actions2 actionDocumentContrat">
               <div
                 id="boutonEditer"
                 className="valider-contrat-bouton-bleu boutonActionGrillePetit actionGrilleDeControle boutonBleu"
@@ -82,12 +87,12 @@ const ValiderContrat = (props) => {
           </div>
           <div className="ligneBilanPoints">
             <div className="nomDocumentContrat">
-              <span className="valider-contrat-contrat-de-service6">
+              <span className="valider-contrat-contrat-de-service8">
                 <span>Contrat de service</span>
                 <br></br>
               </span>
             </div>
-            <div className="valider-contrat-actions2 actionDocumentContrat">
+            <div className="valider-contrat-actions3 actionDocumentContrat">
               <div
                 id="voirContrat"
                 className="boutonActionGrillePetit actionGrilleDeControle boutonBleu"
@@ -106,7 +111,7 @@ const ValiderContrat = (props) => {
                 <br></br>
               </span>
             </div>
-            <div className="valider-contrat-actions3 actionDocumentContrat">
+            <div className="valider-contrat-actions4 actionDocumentContrat">
               <div
                 id="voirBordereau"
                 className="boutonActionGrillePetit actionGrilleDeControle boutonBleu"
@@ -125,7 +130,7 @@ const ValiderContrat = (props) => {
                 <br></br>
               </span>
             </div>
-            <div className="valider-contrat-actions4 actionDocumentContrat">
+            <div className="valider-contrat-actions5 actionDocumentContrat">
               <div
                 id="voirFacture"
                 className="valider-contrat-generer3 boutonActionGrillePetit actionGrilleDeControle boutonBleu"
@@ -144,19 +149,22 @@ const ValiderContrat = (props) => {
                 <br></br>
               </span>
             </div>
-            <div className="valider-contrat-actions5 actionDocumentContrat">
+            <div className="valider-contrat-actions6 actionDocumentContrat">
               <div className="valider-contrat-liste-docs divListeDocs">
                 <ul id="docsJustificatifs" className="listeDocsUpload"></ul>
               </div>
             </div>
           </div>
         </div>
-        <div className="valider-contrat-decision1 mediumContainer containerCentral">
+        <div
+          id="divDecision"
+          className="valider-contrat-decision1 mediumContainer containerCentral"
+        >
           <div className="valider-contrat-decision2 ligneTitreSousChapitre sousTitreContainer">
             <span>Décision</span>
           </div>
           <div className="valider-contrat-options-de-decision ligneBilanPoints">
-            <div className="valider-contrat-actions6 actionDocumentContratGrille">
+            <div className="valider-contrat-actions7 actionDocumentContratGrille">
               <div
                 id="boutonValidationInit"
                 className="valider-contrat-bouton-vert1 boutonActionGrille actionGrilleDeControle boutonVert"
@@ -188,7 +196,7 @@ const ValiderContrat = (props) => {
                 className="textareaMessageInspecteur"
               ></textarea>
             </div>
-            <div className="valider-contrat-points-corriger1 messageInspecteur">
+            <div className="valider-contrat-valider messageInspecteur">
               <div
                 id="boutonValidation"
                 className="valider-contrat-bouton-vert2 boutonActionGrille actionGrilleDeControle boutonVert"
@@ -215,7 +223,7 @@ const ValiderContrat = (props) => {
               id="ligneErreurCorrection"
               className="ligneErreurCreatContrat ligneInfo"
             ></div>
-            <div className="valider-contrat-points-corriger2 messageInspecteur">
+            <div className="valider-contrat-retoquer messageInspecteur">
               <div
                 id="boutonCorrection"
                 className="valider-contrat-bouton-rouge2 boutonActionGrille actionGrilleDeControle boutonRouge"
@@ -242,7 +250,7 @@ const ValiderContrat = (props) => {
               </span>
             </div>
             <div className="valider-contrat-partie210">
-              <div className="valider-contrat-container12 radioContrat">
+              <div className="valider-contrat-container13 radioContrat">
                 <input
                   type="radio"
                   id="particulier"
@@ -256,7 +264,7 @@ const ValiderContrat = (props) => {
                   <br></br>
                 </label>
               </div>
-              <div className="valider-contrat-container13 radioContrat">
+              <div className="valider-contrat-container14 radioContrat">
                 <input
                   type="radio"
                   id="professionnel"
@@ -294,7 +302,7 @@ const ValiderContrat = (props) => {
                   <br></br>
                 </label>
               </div>
-              <div className="valider-contrat-container15 radioContrat">
+              <div className="valider-contrat-container16 radioContrat">
                 <input
                   type="radio"
                   id="madame"
@@ -308,7 +316,7 @@ const ValiderContrat = (props) => {
                   <br></br>
                 </label>
               </div>
-              <div className="valider-contrat-container16 radioContrat">
+              <div className="valider-contrat-container17 radioContrat">
                 <input
                   type="radio"
                   id="mademoiselle"
@@ -399,7 +407,7 @@ const ValiderContrat = (props) => {
                 className="textareaContrat"
               ></textarea>
               <div>
-                <div className="valider-contrat-container19">
+                <div className="valider-contrat-container20">
                   <React.Fragment>
                     <React.Fragment>
                       <ul id="adresseSuggestions" className="suggestions" />
@@ -525,7 +533,7 @@ const ValiderContrat = (props) => {
                 className="textareaContrat"
               ></textarea>
               <div>
-                <div className="valider-contrat-container21">
+                <div className="valider-contrat-container22">
                   <React.Fragment>
                     <ul id="adresse2Suggestions" className="suggestions" />
                   </React.Fragment>
@@ -696,7 +704,7 @@ const ValiderContrat = (props) => {
                 className="textareaContrat"
               />
               <div>
-                <div className="valider-contrat-container23">
+                <div className="valider-contrat-container24">
                   <React.Fragment>
                     <React.Fragment>
                       <Script>{`
@@ -780,7 +788,7 @@ const ValiderContrat = (props) => {
       </div>
       <div id="overlay" className="valider-contrat-overlay overlay"></div>
       <div>
-        <div className="valider-contrat-container27">
+        <div className="valider-contrat-container28">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -903,6 +911,9 @@ const ValiderContrat = (props) => {
                 // Récupérer les détails de l'utilisateur
                 fetchUserDetails(contrat.user_id);
 
+                // Récupérer le workflow
+                fetchWorkflowDetails(contrat.workflow_id);
+
                 // Émettre un événement personnalisé après avoir rempli les données
                 const event = new Event('dataLoaded');
                 document.dispatchEvent(event);
@@ -958,6 +969,57 @@ const ValiderContrat = (props) => {
             })
             .catch(error => {
                 console.error('Erreur lors de la récupération des données utilisateur:', error);
+            });
+        }
+
+        function fetchWorkflowDetails(workflowId) {
+            const token = localStorage.getItem('jwtToken');
+
+            if (!token) {
+                sessionStorage.setItem('message', JSON.stringify({ type: 'error', text: 'Vous devez être connecté pour accéder à cette page.' }));
+                window.location.href = '/';
+                return;
+            }
+
+            const url = \`https://starsmanager-edefd7b34118.herokuapp.com/workflows/\${workflowId}\`;
+
+            fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Authorization': \`Bearer \${token}\`,
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.status === 401) {
+                    sessionStorage.setItem("message", JSON.stringify({ type: "error", text: "Votre session a expiré, veuillez vous reconnecter." }));
+                    window.location.href = '/';
+                    return Promise.reject("Unauthorized");
+                }
+
+                if (!response.ok) {
+                    throw new Error("Workflow introuvable");
+                }
+                return response.json();
+            })
+            .then(workflow => {
+                console.log("Détails du workflow :", workflow);
+                window.workflow = workflow;
+                document.dispatchEvent(new Event('workflowLoaded'));
+
+                // Afficher le message de correction précédent dans la box
+                const messageRTContenuElement = document.getElementById("lastMessageCorrectionTexte");
+                const messageRTElement = document.getElementById("lastMessageCorrection");
+                if (window.workflow.message_correction) {
+                    console.log("message_correction: ", window.workflow.message_correction);
+                    if (messageRTContenuElement && messageRTElement) {
+                        messageRTContenuElement.innerHTML = window.workflow.message_correction.replace(/\\n/g, "<br>");
+                        messageRTElement.style.display = "flex";
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Erreur lors de la récupération des détails du workflow:', error);
             });
         }
 
@@ -1092,7 +1154,7 @@ const ValiderContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="valider-contrat-container29">
+        <div className="valider-contrat-container30">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -1212,7 +1274,7 @@ const ValiderContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="valider-contrat-container31">
+        <div className="valider-contrat-container32">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -1274,7 +1336,7 @@ const ValiderContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="valider-contrat-container33">
+        <div className="valider-contrat-container34">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -1349,97 +1411,70 @@ const ValiderContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="valider-contrat-container35">
+        <div className="valider-contrat-container36">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
-(function() {
-    // Ajout des écouteurs d'événements
-    document.getElementById("boutonCorrection").addEventListener("click", function() {
-        const messageInspecteur = document.getElementById("messageCorrection").value.trim();
-        const ligneErreurCorrection = document.getElementById("ligneErreurCorrection");
-        const checkboxes = [
-            document.getElementById("corrigerGrille"),
-            document.getElementById("corrigerContrat"),
-            document.getElementById("corrigerBordereau"),
-            document.getElementById("corrigerJustificatifs")
-        ];
-
-        // Initialisation des messages d'erreur
-        let errorMessage = "";
-
-        // Vérification du champ messageInspecteur
-        if (messageInspecteur === "") {
-            errorMessage += "Décrivez à l'inspecteur les corrections à apporter.<br>";
-        }
-
-        // Vérification des checkboxes
-        const atLeastOneChecked = checkboxes.some(checkbox => checkbox.checked);
-        if (!atLeastOneChecked) {
-            errorMessage += "Sélectionnez au moins un point à corriger.";
-        }
-
-        // Affichage ou suppression du message d'erreur
-        if (errorMessage !== "") {
-            ligneErreurCorrection.style.display = "block";
-            ligneErreurCorrection.innerHTML = \`<span style="color: red;">\${errorMessage}</span>\`;
-        } else {
-            ligneErreurCorrection.style.display = "none";
-        }
-    });
-
-    // Gestion des boutons d'initialisation de validation et correction
-    document.getElementById("boutonValidationInit").addEventListener("click", function() {
-        const divValidation = document.getElementById("divValidation");
-        const divCorrection = document.getElementById("divCorrection");
-        expandDiv(divValidation);
-        collapseDiv(divCorrection);
-    });
-
-    document.getElementById("boutonCorrectionInit").addEventListener("click", function() {
-        const divValidation = document.getElementById("divValidation");
-        const divCorrection = document.getElementById("divCorrection");
-        expandDiv(divCorrection);
-        collapseDiv(divValidation);
-    });
-
-    // Fonctions pour les transitions dynamiques
-    function expandDiv(div) {
-        div.classList.add('toggle-divActive');
-        adjustHeight(div);
-
-        // Surveiller les changements dans la div pour ajuster la hauteur dynamiquement
-        const observer = new MutationObserver(function() {
-            adjustHeight(div);
+    (function() {
+        // Gestion des boutons d'initialisation de validation et correction
+        document.getElementById("boutonValidationInit").addEventListener("click", function() {
+            const divValidation = document.getElementById("divValidation");
+            const divCorrection = document.getElementById("divCorrection");
+            expandDiv(divValidation);
+            collapseDiv(divCorrection);
         });
-        observer.observe(div, { childList: true, subtree: true });
-    }
 
-    function collapseDiv(div) {
-        div.style.maxHeight = div.scrollHeight + 'px'; // Fixer la hauteur actuelle pour déclencher la transition
-        div.classList.remove('toggle-divActive');
+        document.getElementById("boutonCorrectionInit").addEventListener("click", function() {
+            const divValidation = document.getElementById("divValidation");
+            const divCorrection = document.getElementById("divCorrection");
+            expandDiv(divCorrection);
+            collapseDiv(divValidation);
+        });
 
-        // Utiliser un délai pour garantir la transition fluide
-        setTimeout(function() {
-            div.style.maxHeight = '0px';
-        }, 10);
-    }
+        // Fonctions pour les transitions dynamiques
+        function expandDiv(div) {
+            div.classList.add('toggle-divActive');
+            adjustHeight(div);
 
-    function adjustHeight(div) {
-        // Fixer maxHeight à 'auto' pour forcer le recalcul de la hauteur réelle
-        div.style.maxHeight = 'auto';
-        const scrollHeight = div.scrollHeight + 'px';
-        div.style.maxHeight = scrollHeight; // Ajuster la hauteur pour la transition
-    }
+            // Surveiller les changements dans la div pour ajuster la hauteur dynamiquement
+            const observer = new MutationObserver(function() {
+                adjustHeight(div);
+            });
+            observer.observe(div, { childList: true, subtree: true, characterData: true });
 
-})();
+            // Ajouter des écouteurs d'événements 'input' aux textarea à l'intérieur de la div
+            const textareas = div.querySelectorAll('textarea');
+            textareas.forEach(function(textarea) {
+                textarea.addEventListener('input', function() {
+                    adjustHeight(div);
+                });
+            });
+        }
+
+        function collapseDiv(div) {
+            div.style.maxHeight = div.scrollHeight + 'px'; // Fixer la hauteur actuelle pour déclencher la transition
+            div.classList.remove('toggle-divActive');
+
+            // Utiliser un délai pour garantir la transition fluide
+            setTimeout(function() {
+                div.style.maxHeight = '0px';
+            }, 10);
+        }
+
+        function adjustHeight(div) {
+            // Fixer maxHeight à 'auto' pour forcer le recalcul de la hauteur réelle
+            div.style.maxHeight = 'auto';
+            const scrollHeight = div.scrollHeight + 'px';
+            div.style.maxHeight = scrollHeight; // Ajuster la hauteur pour la transition
+        }
+    })();
 `}</Script>
             </React.Fragment>
           </React.Fragment>
         </div>
       </div>
       <div>
-        <div className="valider-contrat-container37">
+        <div className="valider-contrat-container38">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -1573,7 +1608,7 @@ const ValiderContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="valider-contrat-container39">
+        <div className="valider-contrat-container40">
           <React.Fragment>
             <Script>{`
     // Script pour la page Détails Contrat
@@ -1610,6 +1645,77 @@ const ValiderContrat = (props) => {
         afficherDocuments();
     })();
 `}</Script>
+          </React.Fragment>
+        </div>
+      </div>
+      <div>
+        <div className="valider-contrat-container42">
+          <React.Fragment>
+            <React.Fragment>
+              <Script>{`
+    document.addEventListener("DOMContentLoaded", function() {
+        const boutonValidation = document.getElementById("boutonValidation");
+        const boutonCorrection = document.getElementById("boutonCorrection");
+
+        if (boutonValidation) {
+            boutonValidation.addEventListener("click", function() {
+                sendValidationRequest(window.contrat.workflow_id, "messageValidation", true);
+            });
+        }
+
+        if (boutonCorrection) {
+            boutonCorrection.addEventListener("click", function() {
+                sendValidationRequest(window.contrat.workflow_id, "messageCorrection", false);
+            });
+        }
+    });
+
+    // Fonction pour envoyer la requête POST pour validation ou correction
+    function sendValidationRequest(workflowId, messageElementId, isValidation) {
+        const token = localStorage.getItem('jwtToken');
+        if (!token) {
+            sessionStorage.setItem("message", JSON.stringify({ type: "error", text: "Vous devez être connecté pour accéder à cette page." }));
+            window.location.href = "/"; // Rediriger l'utilisateur
+            return;
+        }
+
+        const messageContent = document.getElementById(messageElementId).value;
+        if (!isValidation && !messageContent) {
+            showMessage('error', 'Le message ne peut pas être vide.');
+            return;
+        }
+
+        const url = \`https://starsmanager-edefd7b34118.herokuapp.com/workflows/\${workflowId}/valider-dossier/\${isValidation ? 'ok' : 'ko'}\`;
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Authorization': \`Bearer \${token}\`,
+                'Content-Type': 'application/text'
+            },
+            body: messageContent
+        })
+        .then(response => {
+            if (response.status === 401) {
+                sessionStorage.setItem("message", JSON.stringify({ type: "error", text: "Votre session a expiré, veuillez vous reconnecter." }));
+                window.location.href = "/"; // Rediriger l'utilisateur
+                return Promise.reject("Unauthorized");
+            } else if (!response.ok) {
+                throw new Error(\`Erreur lors de l'envoi de la requête valider-dossier : \${response.statusText || "Réponse incorrecte"}\`);
+            }
+            return response.text();
+        })
+        .then(() => {
+            const successMessage = isValidation ? "Dossier validé !" : "Demande de correction envoyée à l'inspecteur.";
+            sessionStorage.setItem("message", JSON.stringify({ type: "success", text: successMessage }));
+            window.location.href = "/validation";
+        })
+        .catch(error => {
+            console.error("Erreur lors de l'envoi de la requête valider-dossier :", error);
+        });
+    }
+`}</Script>
+            </React.Fragment>
           </React.Fragment>
         </div>
       </div>

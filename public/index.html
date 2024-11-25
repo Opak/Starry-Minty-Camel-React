@@ -12,11 +12,11 @@
     <style data-tag="default-style-sheet">
       html {
         font-family: Inter;
-        font-size: 16px;
+        font-size: 14px;
       }
 
       body {
-        font-weight: 400;
+        font-weight: 500;
         font-style:normal;
         text-decoration: none;
         text-transform: none;
@@ -289,12 +289,15 @@
                   adjustHeight(this);
               });
 
-              textarea.addEventListener("keydown", function(event) {
-                  if (event.key === "Enter" && !event.shiftKey) {
-                      event.preventDefault();
-                      this.blur();
-                  }
-              });
+              // Ajouter l'écouteur 'keydown' uniquement si nous ne sommes PAS sur la page 'valider-contrat'
+              if (window.location.pathname !== "/valider-contrat") {
+                  textarea.addEventListener("keydown", function(event) {
+                      if (event.key === "Enter" && !event.shiftKey) {
+                          event.preventDefault();
+                          this.blur();
+                      }
+                  });
+              }
 
               // Si l'observation de la visibilité est nécessaire, vous pouvez la conserver ou la simplifier
               // observeVisibility(textarea);

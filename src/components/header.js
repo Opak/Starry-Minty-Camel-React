@@ -34,7 +34,7 @@ const Header = (props) => {
               </svg>
             </div>
             <div className="cadreTexteActionMenuHeader">
-              <span className="texteOptionMenuHeader">
+              <span>
                 {props.retourContrat ?? (
                   <Fragment>
                     <span className="header-text1">Action 1</span>

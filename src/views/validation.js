@@ -100,9 +100,11 @@ const Validation = (props) => {
                 return response.json();
             })
             .then(contrats => {
+                // Filtrer les contrats avec statut = EN_COURS_DE_VALIDATION
+                const contratsEnCoursDeValidation = contrats.filter(contrat => contrat.statut === "EN_COURS_DE_VALIDATION");
                 const tableauListeContrats = document.getElementById("tableauListeContrats");
 
-                const promesses = contrats.map(contrat => {
+                const promesses = contratsEnCoursDeValidation.map(contrat => {
                     // Fetch pour le client
                     const promesseClient = fetch(\`https://starsmanager-edefd7b34118.herokuapp.com/clients/\${contrat.client_id}\`, {
                         method: "GET",
@@ -176,7 +178,7 @@ const Validation = (props) => {
                                     <span class="texteligneContrats">\${contrat.date_visite || ""}</span>
                                 </div>
                                 <div class="celluleLigneContrat celluleDateSoumission">
-                                    <span class="texteligneContrats">\${contrat.date_demande_soumission || ""}</span>
+                                    <span class="texteligneContrats">\${contrat.date_demande_validation || ""}</span>
                                 </div>\`;
 
                             const lienContrat = document.createElement("a");

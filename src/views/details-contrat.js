@@ -15,46 +15,36 @@ const DetailsContrat = (props) => {
         <meta property="og:title" content="Details-Contrat - starsmanager_ui" />
       </Helmet>
       <MenuLatral rootClassName="menu-latralroot-class-name2"></MenuLatral>
-      <div className="MainCadreOnglets">
+      <div className="header--onglets header">
+        <div className="details-contrat-titre1 cadreTitreHeader">
+          <h1 id="nomContrat" className="texteTitreHeader">
+             
+          </h1>
+        </div>
+        <div className="details-contrat-menu cadreMenuHeader">
+          <Link to="/contrats" className="details-contrat-navlink">
+            <div className="details-contrat-liste-contrats boutonHeader boutonActionGrillePetit boutonBleu">
+              <div>
+                <div className="details-contrat-container12">
+                  <React.Fragment>
+                    <span style={{ fontSize: '14px', color: 'white' }}>
+                      <i className="fa-solid fa-chevron-left" />
+                    </span>
+                  </React.Fragment>
+                </div>
+              </div>
+              <span>Liste des contrats</span>
+            </div>
+          </Link>
+        </div>
+      </div>
+      <div className="details-contrat-cadre-onglets MainCadreOnglets">
         <div id="ongletDocuments" className="cadreOnglet actif">
           <h1 className="texteOnglet">Workflow</h1>
         </div>
         <div id="ongletInfos" className="cadreOnglet">
           <h1 className="texteOnglet">Informations</h1>
         </div>
-      </div>
-      <div className="header--onglets header">
-        <div className="details-contrat-titre3 cadreTitreHeader">
-          <h1 id="nomContrat" className="texteTitreHeader">
-             
-          </h1>
-        </div>
-        <Link to="/contrats">
-          <div className="details-contrat-menu cadreMenuHeader">
-            <div className="details-contrat-action110 cadreActionMenuHeader">
-              <span className="details-contrat-retour-contrat texteOptionMenuHeader">
-                Liste des contrats
-              </span>
-            </div>
-            <div className="details-contrat-container11 cadreIconeMenuHeader">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                className="iconeMenuHeader"
-              >
-                <path
-                  d="m2 11l7-9v5c11.953 0 13.332 9.678 13 15c-.502-2.685-.735-7-13-7v5z"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></path>
-              </svg>
-            </div>
-          </div>
-        </Link>
       </div>
       <div
         id="infosContainer"
@@ -72,7 +62,7 @@ const DetailsContrat = (props) => {
               </span>
             </div>
             <div className="details-contrat-partie210">
-              <div className="details-contrat-container12 radioContrat">
+              <div className="details-contrat-container13 radioContrat">
                 <input
                   type="radio"
                   id="particulier"
@@ -85,7 +75,7 @@ const DetailsContrat = (props) => {
                   <br></br>
                 </label>
               </div>
-              <div className="details-contrat-container13 radioContrat">
+              <div className="details-contrat-container14 radioContrat">
                 <input
                   type="radio"
                   id="professionnel"
@@ -121,7 +111,7 @@ const DetailsContrat = (props) => {
                   <br></br>
                 </label>
               </div>
-              <div className="details-contrat-container15 radioContrat">
+              <div className="details-contrat-container16 radioContrat">
                 <input
                   type="radio"
                   id="madame"
@@ -134,7 +124,7 @@ const DetailsContrat = (props) => {
                   <br></br>
                 </label>
               </div>
-              <div className="details-contrat-container16 radioContrat">
+              <div className="details-contrat-container17 radioContrat">
                 <input
                   type="radio"
                   id="mademoiselle"
@@ -219,7 +209,7 @@ const DetailsContrat = (props) => {
                 className="textareaContrat"
               ></textarea>
               <div>
-                <div className="details-contrat-container19">
+                <div className="details-contrat-container20">
                   <React.Fragment>
                     <React.Fragment>
                       <ul id="adresseSuggestions" className="suggestions" />
@@ -339,7 +329,7 @@ const DetailsContrat = (props) => {
                 className="textareaContrat"
               ></textarea>
               <div>
-                <div className="details-contrat-container21">
+                <div className="details-contrat-container22">
                   <React.Fragment>
                     <ul id="adresse2Suggestions" className="suggestions" />
                   </React.Fragment>
@@ -503,7 +493,7 @@ const DetailsContrat = (props) => {
                 className="textareaContrat"
               />
               <div>
-                <div className="details-contrat-container23">
+                <div className="details-contrat-container24">
                   <React.Fragment>
                     <React.Fragment>
                       <Script>{`
@@ -546,7 +536,7 @@ const DetailsContrat = (props) => {
             <div className="details-contrat-partie420 partieInfoContrat2">
               <div
                 id="statutContrat"
-                className="details-contrat-container24"
+                className="details-contrat-container25"
               ></div>
             </div>
           </div>
@@ -566,7 +556,7 @@ const DetailsContrat = (props) => {
               <div className="cercleContainer">
                 <div className="details-contrat-cercle1 etapeCompleted">
                   <div>
-                    <div className="details-contrat-container27">
+                    <div className="details-contrat-container28">
                       <React.Fragment>
                         <span style={{ fontSize: '30px', color: 'white' }}>
                           <i className="fa-regular fa-calendar-check" />
@@ -637,7 +627,7 @@ const DetailsContrat = (props) => {
                   />
                 </div>
               </div>
-              <div className="details-contrat-action113 actionEtape">
+              <div className="actionEtape">
                 <div className="intituleAction">
                   <span>
                     Uploader le contrat de service signé par le client
@@ -674,7 +664,7 @@ const DetailsContrat = (props) => {
               <div className="cercleContainer">
                 <div className="details-contrat-cercle2 etapeCompleted">
                   <div>
-                    <div className="details-contrat-container30">
+                    <div className="details-contrat-container31">
                       <React.Fragment>
                         <span style={{ fontSize: '30px', color: 'white' }}>
                           <i className="fa-solid fa-pencil" />
@@ -712,7 +702,7 @@ const DetailsContrat = (props) => {
                   </div>
                   <div
                     id="boutonReinitGrille"
-                    className="details-contrat-bouton-rouge boutonActionGrillePetit actionGrilleDeControle boutonRouge"
+                    className="details-contrat-bouton-rouge1 boutonActionGrillePetit actionGrilleDeControle boutonRouge"
                   >
                     <span>
                       <span>Réinitialiser</span>
@@ -729,7 +719,7 @@ const DetailsContrat = (props) => {
                   />
                 </div>
               </div>
-              <div className="details-contrat-action115 actionEtape">
+              <div className="actionEtape">
                 <div className="intituleAction">
                   <span>
                     Uploader le bordereau d&apos;exécution de mission signé par
@@ -818,7 +808,7 @@ const DetailsContrat = (props) => {
               <div className="cercleContainer">
                 <div className="details-contrat-cercle3 etapeEnCours">
                   <div>
-                    <div className="details-contrat-container33">
+                    <div className="details-contrat-container34">
                       <React.Fragment>
                         <span style={{ fontSize: '30px', color: 'black' }}>
                           <i className="fa-solid fa-magnifying-glass" />
@@ -835,7 +825,17 @@ const DetailsContrat = (props) => {
                 <div className="intituleAction">
                   <span>En attente du retour du référent technique...</span>
                 </div>
-                <div className="boutonAction"></div>
+                <div className="boutonAction">
+                  <div
+                    id="boutonAnnulerValidation"
+                    className="details-contrat-bouton-rouge2 boutonActionGrillePetit actionGrilleDeControle boutonRouge"
+                  >
+                    <span>
+                      <span>Annuler la demande</span>
+                      <br></br>
+                    </span>
+                  </div>
+                </div>
                 <div className="checkboxAction">
                   <input
                     type="checkbox"
@@ -845,9 +845,12 @@ const DetailsContrat = (props) => {
                   />
                 </div>
               </div>
-              <div className="actionEtape">
+              <div
+                id="dossierValide"
+                className="details-contrat-action118 actionEtape"
+              >
                 <div className="intituleAction">
-                  <span className="details-contrat-text172">
+                  <span className="details-contrat-text175">
                     Dossier validé
                     <span
                       dangerouslySetInnerHTML={{
@@ -866,15 +869,18 @@ const DetailsContrat = (props) => {
                   />
                 </div>
               </div>
-              <div className="actionEtape">
+              <div
+                id="modificationsNecessaires"
+                className="details-contrat-action119 actionEtape"
+              >
                 <div className="intituleAction">
-                  <span className="details-contrat-text173">
+                  <span className="details-contrat-text176">
                     Modifications nécessaires
                   </span>
                 </div>
                 <div className="boutonAction">
                   <div
-                    id="boutonValidation2"
+                    id="boutonCorrection"
                     className="details-contrat-bouton-vert2 boutonActionGrillePetit actionGrilleDeControle boutonVert"
                   >
                     <span>
@@ -885,11 +891,14 @@ const DetailsContrat = (props) => {
                 </div>
                 <div className="checkboxAction"></div>
               </div>
-              <div className="actionEtape">
+              <div
+                id="messageRT"
+                className="details-contrat-action120 actionEtape"
+              >
                 <div className="intituleAction">
                   <span>Message du référent technique :</span>
                 </div>
-                <div className="boutonAction"></div>
+                <div id="messageRTContenu" className="boutonAction"></div>
               </div>
             </div>
           </div>
@@ -899,7 +908,7 @@ const DetailsContrat = (props) => {
               <div className="cercleContainer">
                 <div className="details-contrat-cercle4 etapeAVenir">
                   <div>
-                    <div className="details-contrat-container36">
+                    <div className="details-contrat-container37">
                       <React.Fragment>
                         <span style={{ fontSize: '30px', color: 'black' }}>
                           <i className="fa-regular fa-envelope" />
@@ -1010,7 +1019,7 @@ const DetailsContrat = (props) => {
               <div className="cercleContainer">
                 <div className="details-contrat-cercle5 etapeAVenir">
                   <div>
-                    <div className="details-contrat-container39">
+                    <div className="details-contrat-container40">
                       <React.Fragment>
                         <span style={{ fontSize: '30px', color: 'black' }}>
                           <i className="fa-regular fa-circle-check" />
@@ -1037,7 +1046,7 @@ const DetailsContrat = (props) => {
           className="details-contrat-supprimer-contrat boutonActionGrillePetit actionGrilleDeControle boutonRouge"
         >
           <div>
-            <div className="details-contrat-container41">
+            <div className="details-contrat-container42">
               <React.Fragment>
                 <React.Fragment>
                   <span style={{ fontSize: '1em', color: 'white' }}>
@@ -1072,7 +1081,7 @@ const DetailsContrat = (props) => {
                 }}
               />
             </span>
-            <span className="details-contrat-text197">irréversible</span>
+            <span className="details-contrat-text200">irréversible</span>
             <span>.</span>
           </span>
         </div>
@@ -1138,7 +1147,7 @@ const DetailsContrat = (props) => {
           </div>
           <div
             id="boutonValiderSameAdresse"
-            className="details-contrat-container47 boutonActionGrille actionGrilleDeControle boutonVert"
+            className="details-contrat-container48 boutonActionGrille actionGrilleDeControle boutonVert"
           >
             <span>Confirmer</span>
           </div>
@@ -1163,7 +1172,7 @@ const DetailsContrat = (props) => {
           </div>
           <div
             id="validerEditionGrille"
-            className="details-contrat-container49 boutonActionGrille actionGrilleDeControle boutonVert"
+            className="details-contrat-container50 boutonActionGrille actionGrilleDeControle boutonVert"
           >
             <span>Confirmer</span>
           </div>
@@ -1185,7 +1194,7 @@ const DetailsContrat = (props) => {
                 }}
               />
             </span>
-            <span className="details-contrat-text208">irréversible</span>
+            <span className="details-contrat-text211">irréversible</span>
             <span>.</span>
           </span>
         </div>
@@ -1206,7 +1215,7 @@ const DetailsContrat = (props) => {
       </div>
       <div id="overlay" className="details-contrat-overlay overlay"></div>
       <div>
-        <div className="details-contrat-container53">
+        <div className="details-contrat-container54">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -1524,6 +1533,11 @@ const DetailsContrat = (props) => {
                         classeStatut = 'statut3';
                         iconeStatut = '<i class="fa-solid fa-magnifying-glass"></i>';
                         texteStatut = 'En cours de validation';
+                        break;
+                    case 'NON_CONFORME':
+                        classeStatut = 'statut3-1';
+                        iconeStatut = '<i class="fa-solid fa-triangle-exclamation"></i>';
+                        texteStatut = 'Non-conforme';
                         break;
                     case 'DECISIONS_A_ENVOYER':
                         classeStatut = 'statut4';
@@ -2029,7 +2043,7 @@ const DetailsContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="details-contrat-container55">
+        <div className="details-contrat-container56">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -2074,6 +2088,7 @@ const DetailsContrat = (props) => {
                 console.log("Détails du workflow :", workflow);
                 window.workflow = workflow;
                 updateCheckboxes(workflow.etapes, workflow.id);
+                document.dispatchEvent(new Event('workflowLoaded'));
             })
             .catch(error => {
                 console.error('Erreur lors de la récupération des détails du workflow:', error);
@@ -2100,7 +2115,9 @@ const DetailsContrat = (props) => {
                 "ETAPE2_VERIFIER_GRILLE": "checkbox2-1",
                 "ETAPE2_UPLOAD_BORDEREAU": "checkbox2-2",
                 "ETAPE2_UPLOAD_JUSTIFICATIFS": "checkbox2-3",
-                "ETAPE2_DEMANDE_VALIDATION_DOSSIER": "checkbox2-4"
+                "ETAPE2_DEMANDE_VALIDATION_DOSSIER": "checkbox2-4",
+                "ETAPE3_ATTENDRE_RETOUR_RT": "checkbox3-1",
+                "ETAPE3_VALIDER_DOSSIER": "checkbox3-2"
             };
 
             etapes.forEach(etat => {
@@ -2135,7 +2152,7 @@ const DetailsContrat = (props) => {
                 return;
             }
 
-            const url = \`https://starsmanager-edefd7b34118.herokuapp.com/workflows/\${workflowId}/documents-envoyes/\${action}\`;
+            const url = \`https://starsmanager-edefd7b34118.herokuapp.com/workflows/\${workflowId}/envoyer-document/\${action}\`;
 
             fetch(url, {
                 method: 'POST',
@@ -2146,12 +2163,12 @@ const DetailsContrat = (props) => {
             })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(\`Erreur lors de l'envoi de la requête documents-envoyes/\${action}\`);
+                    throw new Error(\`Erreur lors de l'envoi de la requête envoyer-document/\${action}\`);
                 }
-                console.log(\`Requête documents-envoyes/\${action} envoyée avec succès.\`);
+                console.log(\`Requête envoyer-document/\${action} envoyée avec succès.\`);
             })
             .catch(error => {
-                console.error(\`Erreur lors de l'envoi de la requête documents-envoyes/\${action} :\`, error);
+                console.error(\`Erreur lors de l'envoi de la requête envoyer-document/\${action} :\`, error);
             });
         }
 
@@ -2172,34 +2189,114 @@ const DetailsContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="details-contrat-container57">
+        <div className="details-contrat-container58">
           <React.Fragment>
-            <Script>{`
-  document.addEventListener("dataLoaded", function() {
-    if (window.contrat) {
-      let etapes = [];
-      if (["DEMANDE_RECUE", "VISITE_PROGRAMMEE", "VISITE_EFFECTUEE"].includes(window.contrat.statut)) {
-        etapes = ["etape3", "etape4", "etape5"];
-      } else if (window.contrat.statut === "EN_COURS_DE_VALIDATION") {
-        etapes = ["etape1", "etape2", "etape3", "etape4", "etape5"];
-      }
-      
-      etapes.forEach(function(etapeId) {
-        const etapeElement = document.getElementById(etapeId);
-        if (etapeElement) {
-          etapeElement.style.backgroundColor = "#f0f0f0";
-          etapeElement.style.opacity = "0.6";
-          etapeElement.style.pointerEvents = "none";
+            <React.Fragment>
+              <Script>{`
+  (function() {
+    document.addEventListener("workflowLoaded", function() {
+      if (window.workflow) {
+        let etapes = [];
+        let etapesAActiver = [];
+
+        if (["DEMANDE_RECUE", "VISITE_PROGRAMMEE", "VISITE_EFFECTUEE"].includes(window.workflow.contrat.statut)) {
+          etapes = ["etape3", "etape4", "etape5"];
+          etapesAActiver = ["etape1", "etape2"];
+        } else if (window.workflow.contrat.statut === "EN_COURS_DE_VALIDATION") {
+          etapes = ["etape1", "etape2", "etape4", "etape5"];
+          etapesAActiver = ["etape3"];
+          const boutonAnnulerValidationElement = document.getElementById("boutonAnnulerValidation");
+          if (boutonAnnulerValidationElement) {
+            boutonAnnulerValidationElement.style.display = "flex";
+          }
+        } else if (window.workflow.contrat.statut === "NON_CONFORME") {
+          etapes = ["etape4", "etape5"];
+          etapesAActiver = ["etape1", "etape2", "etape3"];
+          const modificationsNecessairesElement = document.getElementById("modificationsNecessaires");
+          if (modificationsNecessairesElement) {
+            modificationsNecessairesElement.style.display = "flex";
+          }
+        } else if (window.workflow.contrat.statut === "DECISIONS_A_ENVOYER") {
+          etapes = ["etape1", "etape2", "etape3"];
+          etapesAActiver = ["etape4", "etape5"];
+        } else if (window.workflow.contrat.statut === "CONTRAT_CLOTURE") {
+          etapes = ["etape1", "etape2", "etape3", "etape4"];
+          etapesAActiver = ["etape5"];
         }
-      });
-    }
-  });
+
+        // Désactiver les étapes spécifiées
+        etapes.forEach(function(etapeId) {
+          const etapeElement = document.getElementById(etapeId);
+          if (etapeElement) {
+            etapeElement.style.backgroundColor = "#f0f0f0";
+            etapeElement.style.opacity = "0.6";
+            etapeElement.style.pointerEvents = "none";
+          }
+        });
+
+        // Activer les étapes non spécifiées
+        etapesAActiver.forEach(function(etapeId) {
+          const etapeElement = document.getElementById(etapeId);
+          if (etapeElement) {
+            etapeElement.style.backgroundColor = "";
+            etapeElement.style.opacity = "1";
+            etapeElement.style.pointerEvents = "auto";
+          }
+        });
+
+        // Cacher le boutonAnnulerDemande si on n'est pas à l'étape EN_COURS_DE_VALIDATION
+        if (window.workflow.contrat.statut !== "EN_COURS_DE_VALIDATION") {
+          const boutonAnnulerValidationElement = document.getElementById("boutonAnnulerValidation");
+          if (boutonAnnulerValidationElement) {
+            boutonAnnulerValidationElement.style.display = "none";
+          }
+        }
+
+        // Cacher les éléments modificationsNecessaires et messageRT pour les étapes DEMANDE_RECUE, VISITE_PROGRAMMEE, VISITE_EFFECTUEE, EN_COURS_DE_VALIDATION
+        if (["DEMANDE_RECUE", "VISITE_PROGRAMMEE", "VISITE_EFFECTUEE", "EN_COURS_DE_VALIDATION"].includes(window.workflow.contrat.statut)) {
+          const modificationsNecessairesElement = document.getElementById("modificationsNecessaires");
+          const messageRTElement = document.getElementById("messageRT");
+          if (modificationsNecessairesElement) {
+            modificationsNecessairesElement.style.display = "none";
+          }
+          if (messageRTElement) {
+            messageRTElement.style.display = "none";
+          }
+        } else if (window.workflow.message_validation || window.workflow.message_correction) {
+          const messageRTContenuElement = document.getElementById("messageRTContenu");
+          const messageRTElement = document.getElementById("messageRT");
+          if (messageRTElement) {
+            messageRTElement.style.display = "flex";
+          }
+          if (window.workflow.message_validation && messageRTContenuElement) {
+            console.log("message_validation: ", window.workflow.message_validation);
+            messageRTContenuElement.innerHTML = window.workflow.message_validation.replace(/\\n/g, "<br>");
+            messageRTElement.classList.add("ligneValidee");
+          } else if (window.workflow.message_correction && messageRTContenuElement) {
+            console.log("message_correction: ", window.workflow.message_correction);
+            messageRTContenuElement.innerHTML = window.workflow.message_correction.replace(/\\n/g, "<br>");
+          }
+        }
+      }
+
+      if (window.workflow) {
+        const etape3ValiderDossier = window.workflow.etapes.find(etape => etape.nom === "ETAPE3_VALIDER_DOSSIER");
+        if (etape3ValiderDossier && etape3ValiderDossier.terminee) {
+          const dossierValideElement = document.getElementById("dossierValide");
+          if (dossierValideElement) {
+            dossierValideElement.style.display = "flex";
+          }
+        }
+      }
+    });
+  })();
 `}</Script>
+            </React.Fragment>
           </React.Fragment>
         </div>
       </div>
       <div>
-        <div className="details-contrat-container59">
+        <div className="details-contrat-container60">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -2357,7 +2454,7 @@ const DetailsContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="details-contrat-container61">
+        <div className="details-contrat-container62">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -2414,7 +2511,7 @@ const DetailsContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="details-contrat-container63">
+        <div className="details-contrat-container64">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -2476,7 +2573,7 @@ const DetailsContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="details-contrat-container65">
+        <div className="details-contrat-container66">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -2551,7 +2648,7 @@ const DetailsContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="details-contrat-container67">
+        <div className="details-contrat-container68">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -2604,7 +2701,7 @@ const DetailsContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="details-contrat-container69">
+        <div className="details-contrat-container70">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -2681,7 +2778,7 @@ const DetailsContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="details-contrat-container71">
+        <div className="details-contrat-container72">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -2778,7 +2875,7 @@ const DetailsContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="details-contrat-container73">
+        <div className="details-contrat-container74">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -2924,7 +3021,7 @@ const DetailsContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="details-contrat-container75">
+        <div className="details-contrat-container76">
           <React.Fragment>
             <Script>{`
     // Script pour la page Détails Contrat
@@ -2965,7 +3062,7 @@ const DetailsContrat = (props) => {
         </div>
       </div>
       <div>
-        <div className="details-contrat-container77">
+        <div className="details-contrat-container78">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
@@ -3013,7 +3110,7 @@ function sendVerificationRequest(grilleControleId) {
             window.dispatchEvent(new Event('workflowUpdated'));
             showMessage('success', 'La grille a été vérifiée avec succès !');
         } else {
-            sessionStorage.setItem('message', JSON.stringify({ type: 'error', text: 'Vérification échouée. Toutes les sections doivent être vides' }));
+            sessionStorage.setItem('message', JSON.stringify({ type: 'error', text: 'Vérification échouée. Complétez les critères ci-dessous.' }));
             window.location.href = \`/grille-de-controle?id=\${grilleControleId}#verification\`;
         }
     })
@@ -3027,22 +3124,36 @@ function sendVerificationRequest(grilleControleId) {
         </div>
       </div>
       <div>
-        <div className="details-contrat-container79">
+        <div className="details-contrat-container80">
           <React.Fragment>
             <React.Fragment>
               <Script>{`
     document.addEventListener("DOMContentLoaded", function() {
         const boutonValidation = document.getElementById("boutonConfirmerValidation");
+        const boutonCorrection = document.getElementById("boutonCorrection");
+        const boutonAnnulerValidation = document.getElementById("boutonAnnulerValidation");
 
         if (boutonValidation) {
             boutonValidation.addEventListener("click", function() {
-                sendValidationRequest(window.workflow.id);
+                sendValidationRequest(window.workflow.id, "demander-validation");
+            });
+        }
+
+        if (boutonCorrection) {
+            boutonCorrection.addEventListener("click", function() {
+                sendValidationRequest(window.workflow.id, "demander-validation");
+            });
+        }
+
+        if (boutonAnnulerValidation) {
+            boutonAnnulerValidation.addEventListener("click", function() {
+                sendValidationRequest(window.workflow.id, "annuler-demande-validation");
             });
         }
     });
 
-    // Fonction pour envoyer la requête POST pour demander la validation
-    function sendValidationRequest(workflowId) {
+    // Fonction pour envoyer la requête POST pour demander ou annuler la validation
+    function sendValidationRequest(workflowId, action) {
         const token = localStorage.getItem('jwtToken');
         if (!token) {
             sessionStorage.setItem("message", JSON.stringify({ type: "error", text: "Vous devez être connecté pour accéder à cette page." }));
@@ -3050,7 +3161,7 @@ function sendVerificationRequest(grilleControleId) {
             return;
         }
 
-        const url = \`https://starsmanager-edefd7b34118.herokuapp.com/workflows/\${workflowId}/demander-validation\`;
+        const url = \`https://starsmanager-edefd7b34118.herokuapp.com/workflows/\${workflowId}/\${action}\`;
 
         fetch(url, {
             method: 'POST',
@@ -3065,22 +3176,29 @@ function sendVerificationRequest(grilleControleId) {
                 window.location.href = "/"; // Rediriger l'utilisateur
                 return Promise.reject("Unauthorized");
             } else if (!response.ok) {
-                throw new Error(\`Erreur lors de l'envoi de la requête demander-validation : \${response.statusText || "Réponse incorrecte"}\`);
+                throw new Error(\`Erreur lors de l'envoi de la requête : \${response.statusText || "Réponse incorrecte"}\`);
             }
             return response.json();
         })
         .then(data => {
-            const etape8 = data.etapes.find(etape => etape.nom === "ETAPE2_DEMANDE_VALIDATION_DOSSIER");
-            if (etape8 && etape8.terminee) {
-                console.log("Requête demander-validation envoyée avec succès.", data);
+            if (data === true) {
+                console.log(\`Requête \${action} envoyée avec succès.\`, data);
                 window.dispatchEvent(new Event('workflowUpdated'));
-                showMessage('success', 'Contrat envoyé au responsable technique pour validation.');
+                if (action === "demander-validation") {
+                    showMessage('success', 'Contrat envoyé au responsable technique pour validation.');
+                } else if (action === "annuler-demande-validation") {
+                    showMessage('success', 'Demande de validation du contrat annulée.');
+                }
             } else {
-                showMessage('error', 'Complétez toutes les étapes précédentes avant de faire valider le contrat.');
+                if (action === "demander-validation") {
+                    showMessage('error', 'Complétez toutes les étapes précédentes avant de faire valider le contrat.');
+                } else if (action === "annuler-demande-validation") {
+                    showMessage('error', "Erreur lors de l'annulation de la demande de validation.");
+                }
             }
         })
         .catch(error => {
-            console.error("Erreur lors de l'envoi de la requête demander-validation :", error);
+            console.error("Erreur lors de l'envoi de la requête :", error);
         });
     }
 `}</Script>
